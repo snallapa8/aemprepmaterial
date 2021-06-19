@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Workflow</title>
+  <meta charset="utf-8">
+  <meta name="description" content="AEM Interview Questions">
+  <meta name="keywords" content="workflow in AEM,workflow console in AEM, tabs present in workflow console in AEM,custom process step in workflow,dynamic Participant step in workflow,different type of steps present in workflow,inbuilt workflow present in AEM,difference between participant and dialog participant step,participant vs dialog participant step,different built-in workflow users/groups present in AEM,pass values between two workflow steps, how to pass values between two workflow steps">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1828962054294466",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="code/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">AEM Interview Questions</a> <a class="navbar-brand" href="#" id="heading">&gt; workflow</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li>Workflow</li>
+          <li>
+            <a href="index.html">Aem Introduction</a>
+          </li>
+          <li>
+            <a href="osgi.html">OSGI</a>
+          </li>
+          <li>
+            <a href="sling.html">Sling</a>
+          </li>
+          <li>
+            <a href="repository.html">Repository</a>
+          </li>
+          <li>
+            <a href="component.html">Component & Template</a>
+          </li>
+          <li>
+            <a href="sightly.html">Sightly</a>
+          </li>
+          <li>
+            <a href="servlet.html">Servlet</a>
+          </li>
+          <li>
+            <a href="service.html">Service</a>
+          </li>
+          <li>
+            <a href="clientlibs.html">Client Library</a>
+          </li>
+          <li>
+            <a href="scheduler.html">Schedular</a>
+          </li>
+          <li>
+            <a href="eventhandling.html">EventHandling</a>
+          </li>
+          <li>
+            <a href="multi-site_manager.html">Multisite Management</a>
+          </li>
+          <li>
+            <a href="dispatcher.html">Dispatcher</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+        <div class="scroll-sidebar">
+          <p>Workflow</p>
+          <p><a href="index.html">Aem Introduction
+          <p></p>
+          <p></p></a><a href="osgi.html">OSGI</a></p>
+          <p><a href="sling.html">Sling</a></p>
+          <p><a href="repository.html">Repository</a></p>
+          <p><a href="component.html">Component & Template</a></p>
+          <p><a href="sightly.html">Sightly</a></p>
+          <p><a href="servlet.html">Servlet</a></p>
+          <p><a href="service.html">Service</a></p>
+          <p><a href="clientlibs.html">Client Library</a></p>
+          <p><a href="scheduler.html">Schedular</a></p>
+          <p><a href="eventhandling.html">EventHandling</a></p>
+          <p><a href="multi-site_manager.html">Multisite Management</a></p>
+          <p><a href="dispatcher.html">Dispatcher</a></p>
+        </div>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>Workflow</h1>
+        <p>Workflows enable you to automate Experience Manager activities. Workflows consist of a series of steps that are executed in a specific order. Each step performs a distinct activity such as activating a page or sending an email message. Workflows can interact with assets in the repository, user accounts, and Experience Manager services. Therefore, workflows can coordinate complicated activities that involve any aspect of Experience Manager</p>
+        <p>Many useful workflow models are provided with Experience Manager. In addition, any number of custom workflow models, tailored to the specific needs of your project, can be defined using the Workflow console.</p>Read more
+        <hr>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h2>Interview Questions</h2>
+        <p><strong>Note:</strong> For more on <strong>Workflow</strong> watch this video <i class="fa fa-video-camera" style="font-size:28px;color:green"></i></p>
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">1. What is workflow?</a></h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Workflows enable you to automate Experience Manager activities. Workflows consist of a series of steps that are executed in a specific order. Each step performs a distinct activity such as activating a page or sending an email message. Workflows can interact with assets in the repository, user accounts, and Experience Manager services. Therefore, workflows can coordinate complicated activities that involve any aspect of Experience Manager</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">2. What is workflow console? What are the tabs present in it?</a></h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The Workflow console is the centralized location for workflow management in AEM. It can be accessed via the Workflows link on the AEM Welcome page (Classic UI), and the Tools section of the touch-optimized UI.</p>
+                <h4>Within the Workflow console, there are several tabs:</h4>
+                <ul>
+                  <li><b>Models -</b> Lists the workflow models currently available. Here you can create, edit or delete workflow models.</li>
+                  <li><b>Instances -</b> Shows you details of workflow instances which are currently active. These instances are also version dependent.</li>
+                  <li><b>Archive -</b> Enables you to access details of workflow instances which have terminated, for whatever reason.</li>
+                  <li><b>Launcher -</b> Allows you to define a workflow to be launched if a specific node has been updated.</li>
+                  <li><b>Failures -</b> Enables you to monitor and manage failed worklow instances.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">3. How to create custom process step in AEM? Give one example.</a></h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>To define a process step as an OSGI service component.</p>
+                <ul>
+                  <li><b>1.</b> the OSGI component needs to implement the WorkflowProcess interface with its execute() method.</li>
+                  <li>
+                    <b>2.</b> Add the SCR property "process.label" and set the value as you please. This will be the name which your process step is listed as when using the generic Process Step component.
+                    <div class="alert alert-success">
+                      import org.apache.felix.scr.annotations.Component;<br>
+                      import org.apache.felix.scr.annotations.Properties;<br>
+                      import org.apache.felix.scr.annotations.Property;<br>
+                      import org.apache.felix.scr.annotations.Service;<br>
+                      import org.osgi.framework.Constants;<br>
+                      import com.adobe.granite.workflow.WorkflowException;<br>
+                      import com.adobe.granite.workflow.WorkflowSession;<br>
+                      import com.adobe.granite.workflow.exec.WorkItem;<br>
+                      import com.adobe.granite.workflow.exec.WorkflowProcess;<br>
+                      import com.adobe.granite.workflow.metadata.MetaDataMap;<br>
+                      @Component<br>
+                      @Service<br>
+                      @Properties({<br>
+                      &ensp;&ensp;&ensp;@Property(name = Constants.SERVICE_DESCRIPTION, value = "An example workflow process implementation."),<br>
+                      &ensp;&ensp;&ensp;@Property(name = Constants.SERVICE_VENDOR, value = "my vendor"),<br>
+                      &ensp;&ensp;&ensp;@Property(name = "process.label", value = "My Sample Workflow Process") })<br>
+                      &ensp; public class MyProcess implements WorkflowProcess {<br>
+                      &ensp;&ensp;public void execute(WorkItem arg0, WorkflowSession arg1, MetaDataMap arg2 )throws WorkflowException {<br>
+                      &ensp;&ensp;// TODO Auto-generated method stub<br>
+                      &ensp;&ensp;}<br>
+                      }<br>
+                    </div><b>execute method</b> has three parameters :-
+                    <ul>
+                      <li><b>WorkItem -</b> A WorkItem is the unit that is passed through an Workflow instance of a WorkflowModel. It contains the WorkflowData the instances acts on and a reference to the WorkflowNode that describes the underlying workflow step. A WorkItem can be considered as a token in a petri net that flows through the net during execution. More</li>
+                      <li><b>WorkflowSession -</b> The WorkflowSession class provides all functionality (depending on the users rights) for managing WorkflowModels, Workflow instances and their execution. More</li>
+                      <li><b>MetaDataMap -</b> A value map for generic access to meta data values. More</li>
+                    </ul>
+                  </li>
+                  <li><b>3.</b> In the CQ Workflow console, add the process step to the workflow using the generic Process Step component. &ensp;&ensp;&ensp; <img src="pics/process_step.PNG" alt="Mountain View" style="width:313px;height:214px;"></li>
+                  <li><b>4.</b> In the edit dialog, go to the Process tab and select your process implementation.(Here My Sample Workflow Process).<br>
+                  &ensp;&ensp; <img src="pics/process_step01.PNG" alt="Mountain View" style="width:313px;height:214px;"></li>
+                  <li><b>5.</b> If you use arguments in your code set the Process Arguments</li>
+                  <li><b>6.</b> Save the changes</li>
+                </ul>
+                <p></p><b>Check this video:-</b> Create custom AEM workflow step
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4">4. What is dynamic Participant step? How to create dynamic Participant step?</a></h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The Dynamic Participant Step component is similar to Participant Step except the participant is selected automatically at run time.</p>
+                <p>To define a dynamic participate step as an OSGI service component.</p>
+                <ul>
+                  <li><b>1.</b> the OSGI component needs to implement the ParticipantStepChooser interface with its getParticipant() method.</li>
+                  <li>
+                    <b>2.</b> Add the SCR property "chooser.label" and set the value as you please. This will be the name which your Participant chooser is listed as when using the Dynamic Participant Step component.
+                    <div class="alert alert-success">
+                      import org.apache.felix.scr.annotations.Component;<br>
+                      import org.apache.felix.scr.annotations.Properties;<br>
+                      import org.apache.felix.scr.annotations.Property;<br>
+                      import org.apache.felix.scr.annotations.Service;<br>
+                      import org.osgi.framework.Constants;<br>
+                      import com.day.cq.workflow.WorkflowException;<br>
+                      import com.day.cq.workflow.WorkflowSession;<br>
+                      import com.day.cq.workflow.exec.ParticipantStepChooser;<br>
+                      import com.day.cq.workflow.exec.WorkItem;<br>
+                      import com.day.cq.workflow.metadata.MetaDataMap;<br>
+                      @Component<br>
+                      @Service<br>
+                      @Properties({<br>
+                      &ensp;&ensp;&ensp; @Property(name = Constants.SERVICE_DESCRIPTION, value = "An example of a dynamic participant chooser."),<br>
+                      &ensp;&ensp;&ensp; @Property(name = ParticipantStepChooser.SERVICE_PROPERTY_LABEL, value = "My participate step") })<br>
+                      &ensp; public class InitiatorParticipantChooser implements ParticipantStepChooser {<br>
+                      &ensp;&ensp;&ensp;&ensp;public String getParticipant(WorkItem arg0, WorkflowSession arg1,MetaDataMap arg2) throws WorkflowException {<br>
+                      &ensp;&ensp;&ensp;&ensp;&ensp; return "admin";<br>
+                      }<br>
+                      }<br>
+                    </div>
+                  </li>
+                  <li><b>3.</b> In the CQ Workflow console, add the participant step to the workflow using the dynamic particpant Step component.<br>
+                  <img src="pics/dynamic_participant_step.PNG" alt="participant step" style="width:221px;height:406px;"></li>
+                  <li><b>4.</b> In the edit dialog, go to the Participant chooser tab and select your Participant chooser implementation.<br>
+                  <img src="pics/dynamic_participant_step01.PNG" alt="participant step" style="width:313px;height:214px;"></li>
+                  <li><b>5.</b> If you use arguments in your code set the Arguments</li>
+                  <li><b>6.</b> Save the changes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5">5. How are the resources called that are passed through a workflow?</a></h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>It is <b>Payload</b></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6">6. What are the different type of steps present in workflow?</a></h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Workflow models consist of a series of steps of various types which can be extended with scripts to provide the functionality and control you require.</p>
+                <ul>
+                  <li><b>PROCESS STEP -</b> It executes an ECMA script or calls an OSGi service to perform automatic processing.<br>
+                  <br>
+                  &ensp;&ensp; <img src="pics/process_step01.PNG" alt="process step" style="width:375px;height:280px;"><br>
+                  <b>Process</b><br>
+                  The process implementation to execute. Use the drop-down menu to select the ECMA script or OSGi service that are available<br>
+                  <b>Handler Advance</b><br>
+                  Select this option to automatically advance the workflow to the next step after execution. If no selected, the implementation script must handle workflow advancement.<br>
+                  <b>Arguments</b><br>
+                  Arguments to be passed to the process.</li>
+                  <li><b>PARTICIPANT STEP -</b> It enables you to assign ownership for a particular action. The workflow will only proceed when the user has manually acknowledged the step. This is used when you want someone to take an action on the workflow; for example, a review step.<br>
+                  <br>
+                  &ensp;&ensp; <img src="pics/participant_step.PNG" alt="participant step" style="width:375px;height:280px;"></li><br>
+                  <b>User/group</b><br>
+                  A drop down selection box will allow you to navigate and select a user or group.<br>
+                  <b>Email</b><br>
+                  You can notify participant(s) by sending them an email when the workflow reaches the step.<br>
+                  If set to On, an email will be sent to the user defined by the property User/Group or to each member of the group if a group is defined.
+                  <li><b>CONTAINER STEP -</b> A container step starts another workflow model that executes as a child workflow.<br>
+                  <br>
+                  &ensp;&ensp; <img src="pics/container_step.PNG" alt="Container step" style="width:375px;height:280px;"></li><br>
+                  <b>Sub Workflow</b><br>
+                  Select the workflow to start. more
+                  <li><b>OR SPLIT -</b> It creates a split in the workflow, whereby only one branch is active. This allows you to introduce conditional processing paths into our workflow. more</li>
+                  <li><b>AND SPLIT -</b> An AND Split creates a split in the workflow; both branches will be active. This component enables you to introduce multiple processing paths into the workflow. For example you can allow certain review steps to occur in parallel, saving time. more</li>
+                  <li><b>GOTO STEP -</b> The Goto step specifies the next step in the workflow model to execute, depending on the result of an ECMA script. more</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse7">7. What are the inbuilt workflow present in AEM?</a></h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>AEM has some inbuilt workflow. Example</p>
+                <ul>
+                  <li>
+                    <b>DAM MetaData Writeback -</b> This workflow manages XMP write-back to the original binary and sets the last modified date in jcr.
+                    <p>If you want the feature to propagate metadata changes to select renditions of the asset, add the name of the renditions to the XMP Writeback Process workflow step of DAM Metadata WriteBack workflow. By default, this step is configured with the original rendition. more</p>
+                  </li>
+                  <li><b>Approve for Adobe Campaign -</b> Workflow handling the edition, review and approval of a newsletter to be sent using Adobe Campaign.</li>
+                  <li><b>Dam update asset -</b> By default, upon image upload to CQ’s Digital Asset Management, a “DAM Update Asset” workflow would be triggered and one of the many processes inside the workflow is to generate a web rendition of the uploaded image. And the default setting of CQ’s Image API is to always render the web-enabled version of the uploaded image. This combination helps to limit the size and the quality of the image displayed thus reducing the page load time.</li>
+                </ul>
+                <p>Other than this AEM has inbuilt workflow - Download Asset, Dam parse word document, etc</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse8">8. What is difference between participant and dialog participant step?</a></h4>
+            </div>
+            <div id="collapse8" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>PARTICIPANT STEP -</b> A participant step enables you to assign ownership for a particular action. The workflow will only proceed when the user has manually acknowledged the step. This is used when you want someone to take an action on the workflow; for example, a review step. more</p>
+                <p><b>DIALOG PARTICIPANT STEP -</b> Use a Dialog Participant Step to collect information from the user who is assigned the work item. This step is useful for collecting small amounts of data that is used later in the workflow. Upon completing the step, the Complete Work Item dialog contains the fields that you define in your dialog. The data that is collected in the fields is stored in nodes of the workflow payload. Subsequent workflow steps can then read the value from the repository. more</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse9">9. Where I can see workflow model in crxde?</a></h4>
+            </div>
+            <div id="collapse9" class="panel-collapse collapse">
+              <div class="panel-body">
+                Under /etc/workflow/models.
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse10">10. What are the different built-in workflow users/groups present in AEM?</a></h4>
+            </div>
+            <div id="collapse10" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>We have two built-in workflow groups.</p>
+                <ul>
+                  <li><b>workflow-editors</b> - Group that is allowed to create and modify workflow models.</li>
+                  <li>
+                    <p><b>workflow-users</b> - A user participating in a workflow must be member of group workflow-users. This gives him or her full access to: /etc/workflow/instances so that he or she can update the workflow instance.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse11">11. How to trigger a workflow programmatically?</a></h4>
+            </div>
+            <div id="collapse11" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Procedure to trigger a workflow programmatically.</p>
+                <ul>
+                  <li>Create a workflow session<br>
+                    <br>
+                    <div class="alert alert-success">
+                      WorkflowSession wfSession = workflowService.getWorkflowSession(session);
+                    </div>
+                  </li>
+                  <li>Get the workflow model<br>
+                    <br>
+                    <div class="alert alert-success">
+                      WorkflowModel wfModel = wfSession.getModel(model); # your workfllow model name
+                    </div>
+                  </li>
+                  <li>Get the workflow data.<br>
+                    <br>
+                    <div class="alert alert-success">
+                      WorkflowData wfData = wfSession.newWorkflowData("JCR_PATH", path);
+                    </div>
+                  </li>
+                  <li>Run the Workflow.<br>
+                    <br>
+                    <div class="alert alert-success">
+                      wfSession.startWorkflow(wfModel, wfData);
+                    </div>
+                  </li>
+                </ul>Here is Full Code.<br>
+                <br>
+                <div class="alert alert-success">
+                  &ensp;@Component<br>
+                  &ensp;@Service<br>
+                  &ensp;@Properties({<br>
+                  &ensp;&ensp;&ensp;@Property(name = "sling.servlet.paths", value = "/bin/programmaticallyrunworklow"),<br>
+                  &ensp;&ensp;&ensp;@Property(name = "sling.servlet.methods", value = "GET")<br>
+                  &ensp;})<br>
+                  &ensp;public class ProgrammaticallyRunWorklow extends SlingSafeMethodsServlet {<br>
+                  &ensp;&ensp;&ensp;static private final Logger log = LoggerFactory.getLogger(this.class);<br>
+                  <br>
+                  &ensp;&ensp;&ensp;@Reference<br>
+                  &ensp;&ensp;&ensp;private WorkflowService workflowService;<br>
+                  <br>
+                  &ensp;&ensp;&ensp;@Override<br>
+                  &ensp;&ensp;&ensp;protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {<br>
+                  &ensp;&ensp;&ensp;&ensp;ResourceResolver resourceResolver = request.getResourceResolver();<br>
+                  &ensp;&ensp;&ensp;&ensp;Session session = resourceResolver.adaptTo(Session.class);<br>
+                  <br>
+                  &ensp;&ensp;&ensp;&ensp;/* Get Parameters<br>
+                  &ensp;&ensp;&ensp;&ensp; * @param path = path you want to run the workflow on<br>
+                  &ensp;&ensp;&ensp;&ensp;* @param model = workflow model name you want to run. Typically found in /etc/workflow/models<br>
+                  &ensp;&ensp;&ensp;&ensp;*/<br>
+                  &ensp;&ensp;&ensp;&ensp;RequestParameterMap params = request.getRequestParameterMap();<br>
+                  &ensp;&ensp;&ensp;&ensp;String path = "/content/mypath";<br>
+                  &ensp;&ensp;&ensp;&ensp;String model = "myworkflowmodel";<br>
+                  &ensp;&ensp;&ensp;&ensp;// Create a workflow session<br>
+                  &ensp;&ensp;&ensp;&ensp;WorkflowSession wfSession = workflowService.getWorkflowSession(session);<br>
+                  &ensp;&ensp;&ensp;&ensp;try {<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;// Get the workflow model<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;WorkflowModel wfModel = wfSession.getModel(model);<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;// Get the workflow data<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;// The first param in the newWorkflowData method is the payloadType. Just a fancy name to let it know what type of workflow it is working with.<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;WorkflowData wfData = wfSession.newWorkflowData("JCR_PATH", path);<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;// Run the Workflow.<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;wfSession.startWorkflow(wfModel, wfData);<br>
+                  &ensp;&ensp;&ensp;&ensp;} catch (WorkflowException ex) {<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;response.getWriter().write("failed");<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;log.error("Error starting workflow.", ex);<br>
+                  &ensp;&ensp;&ensp;&ensp;}<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;response.getWriter().write("success");<br>
+                  &ensp;&ensp;&ensp;&ensp;}<br>
+                  &ensp;&ensp;}<br>
+                </div>https://helpx.adobe.com/experience-manager/using/invoking-experience-manager-workflows-using.html
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse12">12. How to pass values between two workflow steps?</a></h4>
+            </div>
+            <div id="collapse12" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>We can pass values between two workflow steps in <b>workitem</b></p>
+                <ul>
+                  <li>Set the value into first workflow step using code.
+                    <div class="alert alert-success">
+                      workItem.getWorkflowData().getMetaDataMap().put("firstStepMessage", "Hello second step");
+                    </div>
+                  </li>
+                  <li>Get the value into Secod workflow step using code.
+                    <div class="alert alert-success">
+                      workItem.getWorkflowData().getMetaDataMap().get("firstStepMessage", String.class);
+                    </div>
+                  </li>
+                </ul>
+                <p>Here is the full code of First workflow step</p>
+                <div class="alert alert-success">
+                  import org.apache.felix.scr.annotations.Component;<br>
+                  import org.apache.felix.scr.annotations.Properties;<br>
+                  import org.apache.felix.scr.annotations.Property;<br>
+                  import org.apache.felix.scr.annotations.Service;<br>
+                  import org.osgi.framework.Constants;<br>
+                  import com.adobe.granite.workflow.WorkflowException;<br>
+                  import com.adobe.granite.workflow.WorkflowSession;<br>
+                  import com.adobe.granite.workflow.exec.WorkItem;<br>
+                  import com.adobe.granite.workflow.exec.WorkflowProcess;<br>
+                  import com.adobe.granite.workflow.metadata.MetaDataMap;<br>
+                  &ensp;@Component(label = "First workflowstep", description = "First workflowstep ", immediate = true, metatype = true)<br>
+                  &ensp;@Service<br>
+                  &ensp;@Properties({<br>
+                  &ensp;&ensp;&ensp;@Property(name = Constants.SERVICE_DESCRIPTION, value = "Passing value between two workflow step"),<br>
+                  &ensp;&ensp;&ensp;@Property(name="process.label", value="First Workflow Step")})<br>
+                  &ensp;public class FirstWorkflowStep implements WorkflowProcess{<br>
+                  <br>
+                  &ensp;&ensp;&ensp;@Override<br>
+                  &ensp;&ensp;&ensp;public void execute(WorkItem workItem, WorkflowSession workflowSession, MetaDataMap metaDataMap) throws WorkflowException {<br>
+                  <br>
+                  <br>
+                  &ensp;&ensp;&ensp;&ensp;/** Set value in workitem **/<br>
+                  &ensp;&ensp;&ensp;&ensp;<b>workItem.getWorkflowData().getMetaDataMap().put("firstStepMessage", "Hello second step");</b><br>
+                  &ensp;&ensp;}<br>
+                  <br>
+                  &ensp;}
+                </div>
+                <p>Here is the full code of Second workflow step</p>
+                <div class="alert alert-success">
+                  import org.apache.felix.scr.annotations.Component;<br>
+                  import org.apache.felix.scr.annotations.Properties;<br>
+                  import org.apache.felix.scr.annotations.Property;<br>
+                  import org.apache.felix.scr.annotations.Service;<br>
+                  import org.osgi.framework.Constants;<br>
+                  import com.adobe.granite.workflow.WorkflowException;<br>
+                  import com.adobe.granite.workflow.WorkflowSession;<br>
+                  import com.adobe.granite.workflow.exec.WorkItem;<br>
+                  import com.adobe.granite.workflow.exec.WorkflowProcess;<br>
+                  import com.adobe.granite.workflow.metadata.MetaDataMap;<br>
+                  &ensp;@Component(label = "Second workflowstep", description = "Second Step workflowstep ", immediate = true, metatype = true)<br>
+                  &ensp;@Service<br>
+                  &ensp;@Properties({<br>
+                  &ensp;&ensp;&ensp;@Property(name = Constants.SERVICE_DESCRIPTION, value = "Passing value between two workflow step"),<br>
+                  &ensp;&ensp;&ensp;@Property(name="process.label", value="Second Workflow Step")})<br>
+                  &ensp;public class SecondWorkflowStep implements WorkflowProcess {<br>
+                  &ensp;&ensp;&ensp;@Override<br>
+                  &ensp;&ensp;&ensp;public void execute(WorkItem workItem, WorkflowSession workflowSession, MetaDataMap metaDataMap) throws WorkflowException {<br>
+                  &ensp;&ensp;&ensp;&ensp;/** get value from Workitem **/<br>
+                  &ensp;&ensp;&ensp;&ensp;<b>String firstStepMessage = workItem.getWorkflowData().getMetaDataMap().get("firstStepMessage", String.class);</b><br>
+                  <br>
+                  &ensp;&ensp;}<br>
+                  <br>
+                  &ensp;}<br>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse13">13. You want to define a Java based CQ workflow process step. Which interface must your class implement?</a></h4>
+            </div>
+            <div id="collapse13" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The com.day.cq.workflow.exec.<b>WorkflowProcess</b> interface</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse14">14. You create a custom workflow process using the CQ API. Which method or methods needs to be overridden when your class implements the WorkflowProcess Interface?</a></h4>
+            </div>
+            <div id="collapse14" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>We need to override only <b>execute</b> method. It returns <b>void</b></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse15">15. You want to define a Java based CQ workflow participant step. Which interface must your class implement?</a></h4>
+            </div>
+            <div id="collapse15" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The com.day.cq.workflow.exec.<b>ParticipantStepChooser</b> interface</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse16">16. You create a custom workflow participant using the CQ API. Which method or methods needs to be overridden when your class implements the ParticipantStepChooser Interface?</a></h4>
+            </div>
+            <div id="collapse16" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>We need to override only <b>getParticipant</b> method. It returns <b>String.</b></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse17">17. During a workflow step a comment is added requiring an update of a paragraph on a Web page. Where does the workflow author make the change?</a></h4>
+            </div>
+            <div id="collapse17" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>In the content page within the workflow step.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse18">18. You want to prompt a workflow user for information during the processing of a workflow step. Where is the content that the workflow user entered stored?</a></h4>
+            </div>
+            <div id="collapse18" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The content that the workflow user enters will be stored as part of the page.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse19">19. You want the process script to automatically advance the workflow to the next step after execution. Which dialog form field of a Process Step must be set to true?</a></h4>
+            </div>
+            <div id="collapse19" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Handler Advance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="container-fluid text-center">
+      <p>Please send your queries or suggestions at aeminterviewquestions@gmail.com(Abhinash Kumar Singh)</p>
+    </footer>
+  </div>
+</body>
+</html>

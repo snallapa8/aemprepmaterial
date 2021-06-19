@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OSGI Component and Service</title>
+  <meta charset="utf-8">
+  <meta name="description" content="AEM Interview Questions">
+  <meta name="keywords" content="Service in AEM,advantages of services,How to create a service class,component annotations in OSGI, service annotations in OSGI,property annotations in OSGI,reference annotations in OSGI,Difference between component-oriented approach and service oriented approach,ways to call service class in AEM,servicefactory,mandatory annotations should present in Service class,run modes in AEM, set up a Run mode in AEM,Difference between OSGI component and service,OSGI component vs service,Persistence IDs in AEM,PID in AEM,register a service using bundlecontext">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1828962054294466",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="code/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">AEM Interview Questions</a> <a class="navbar-brand" href="#" id="heading">&gt; Service</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li>Service</li>
+          <li>
+            <a href="index.html">Aem Introduction</a>
+          </li>
+          <li>
+            <a href="osgi.html">OSGI</a>
+          </li>
+          <li>
+            <a href="sling.html">Sling</a>
+          </li>
+          <li>
+            <a href="repository.html">Repository</a>
+          </li>
+          <li>
+            <a href="component.html">Component & Template</a>
+          </li>
+          <li>
+            <a href="sightly.html">Sightly</a>
+          </li>
+          <li>
+            <a href="servlet.html">Servlet</a>
+          </li>
+          <li>
+            <a href="clientlibs.html">Client Library</a>
+          </li>
+          <li>
+            <a href="workflow.html">Workflow</a>
+          </li>
+          <li>
+            <a href="scheduler.html">Schedular</a>
+          </li>
+          <li>
+            <a href="eventhandling.html">EventHandling</a>
+          </li>
+          <li>
+            <a href="multi-site_manager.html">Multisite Management</a>
+          </li>
+          <li>
+            <a href="dispatcher.html">Dispatcher</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+        <div class="scroll-sidebar">
+          <p>Service</p>
+          <p><a href="index.html">Aem Introduction
+          <p></p>
+          <p></p></a><a href="osgi.html">OSGI</a></p>
+          <p><a href="sling.html">Sling</a></p>
+          <p><a href="repository.html">Repository</a></p>
+          <p><a href="component.html">Component & Template</a></p>
+          <p><a href="sightly.html">Sightly</a></p>
+          <p><a href="servlet.html">Servlet</a></p>
+          <p><a href="clientlibs.html">Client Library</a></p>
+          <p><a href="workflow.html">Workflow</a></p>
+          <p><a href="scheduler.html">Schedular</a></p>
+          <p><a href="eventhandling.html">EventHandling</a></p>
+          <p><a href="multi-site_manager.html">Multisite Management</a></p>
+          <p><a href="dispatcher.html">Dispatcher</a></p>
+        </div>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>OSGI Component and Service</h1>
+        <p>Components are main building block for OSGI application. Components in OSGI are, by defination, provided by a bundle. A bundle will provide/contain one or more components. A component is like a run-time service. They can publish themselves as a service, and/or they can have depencencies on other components/services. Adding a @Component annotation to a public class will turn it into a component</p>
+        <p>An OSGi service is a java object instance, registered into an OSGi framework with a set of properties. Any java object can be registered as a service, but typically it implements a well-known interface. The client of a service is always an OSGi bundle, i.e. a piece of java code possible to start via the BundleActivator interface. Each bundle may register zero or more services. Each bundle may also use zero or more services. There exists no limit on the number of services, more than the ones given by memory limits or java security permissions.</p>
+        <hr>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h2>Interview Questions</h2>
+        <p><strong>Note:</strong> For more on <strong>OSGI Service</strong> watch this video <i class="fa fa-video-camera" style="font-size:28px;color:green"></i></p>
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">1. What are advantages of services?</a></h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Following are the advantages of OSGI services:</p>
+                <ul>
+                  <li>Lightweight services</li>
+                  <li>Separates interface from implementation</li>
+                  <li>Lookup is based on Interface name</li>
+                  <li>Direct method invocation</li>
+                  <li>Good design practice</li>
+                  <li>Enables reuse, substitutability, loose coupling and late binding.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">2. How to create a service class?</a></h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>We can define a class as a service by adding the following scr annotations:</p>
+                <ul>
+                  <li><b>@Component</b> – defines the class as a component</li>
+                  <li><b>@Service</b> - defines the service interface that is provided by the component</li>
+                </ul>
+                <p>Example</p>
+                <div class="alert alert-success">
+                  import org.apache.felix.scr.annotations.Component;<br>
+                  import org.apache.felix.scr.annotations.Service;<br>
+                  //This is a component so it can provide or consume services<br>
+                  &ensp; @Component<br>
+                  &ensp;@Service<br>
+                  &ensp; public class MyserviceImpl implements MyService {<br>
+                  &ensp;&ensp;&ensp; }<br>
+                </div>
+                <p>https://helpx.adobe.com/experience-manager/using/first-osgi.html</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">3. Explain component, service, property and reference annotations in OSGI.</a></h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><strong>@component</strong> - The @Component annotates an implementation class and is used to declare it as a component type. It is the only required annotation. If this annotation is not declared for a Java class, the class is not declared as a component.</p>
+                <p><strong>@service</strong> - The @Service annotation defines whether and which service interfaces are provided by the component. This is a class annotation.</p>
+                <p><strong>@reference</strong> - The @Reference annotation defines references to other services made available to the component by the Service Component Runtime.</p>
+                <p><strong>@property</strong> - The @Property annotation defines properties which are made available to the component through the ComponentContext.getProperties() method. These tags are not strictly required but may be used by components to defined initial configuration. Additionally properties may be set here to identify the component if it is registered as a service, for example the service.description and service.vendor properties.</p>For more <strong>information</strong> Check this link
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4">4. Difference between OSGI component and service.</a></h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>Component</b> - If you want the life of your object to be managed by the OSGi container, you should declare it as a component. Using annotations, you could make a POJO a OSGi component by annotating it with @Component. With this, you will get the ability to start, stop and configure the component using the felix web console. All objects managed by OSGi container are components. You qualify components as services. This means that all services are components but not vice-versa.</p>
+                <p><br></p>
+                <p><b>Service</b> - OSGi components can be made as OSGi service by marking it with @Service annotation. When you mark a component as service, you could refer (call) this service from other osgi components. Components can refer/call (using container injection – @Reference) other services but not components. In other words, a component cannot be injected into another component / service. Only services can be injected into another component.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5">5. What are the ways to call service class?</a></h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul>
+                  <li>
+                    <p>Use SCR annotations to let SCR inject the service in your component:(Generally in Servlet)<br>
+                    &ensp; &ensp; &ensp;<b>@Reference</b><br>
+                    &ensp; &ensp; &ensp; private MyService myService;</p>
+                  </li>
+                  <li>
+                    <p>Use Bundle Context to get the service in your Java/Jsp file<br>
+                    &ensp; &ensp; &ensp; BundleContext bundleContext = FrameworkUtil.getBundle(MyService.class).getBundleContext();<br>
+                    &ensp; &ensp; &ensp; ServiceReference factoryRef = bundleContext.getServiceReference(ResourceResolverFactory.class.getName());<br>
+                    &ensp; &ensp; &ensp; ResourceResolverFactory resolverFactory = (ResourceResolverFactory) bundleContext.getService(factoryRef);</p>
+                  </li>
+                  <li>
+                    <p>Use <b>sling.getService()</b> method(Generally in JSP)<br>
+                    &ensp; &ensp; &ensp; MyService service=sling.getService(MyService.class);</p>
+                  </li>
+                  <li>
+                    <p>Use <b>SlingScriptHelper.getService()</b> method (into Java Use-API class ie Handler class )<br>
+                    &ensp; &ensp; &ensp; MyService service=getSlingScriptHandler().getService(MyService.class);</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6">6. What is servicefactory?</a></h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>An OSGi service factory is a special class ServiceFactory, which can create individual instances of service objects for different bundles. Sometimes a service needs to be differently configured depending on which bundle uses the service. For example, the log service needs to be able to print the logging bundle’s id, otherwise the log would be hard to read.</p>For more on servicefactory watch this video
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse7">7. What are the mandatory annotations should present in Service class?</a></h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>@component<br>
+                @service</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse8">8. What is run modes? How to set up a Run mode?</a></h4>
+            </div>
+            <div id="collapse8" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Run modes allow you to tune your AEM instance for a specific purpose; for example author or publish, Devlopment, QA, Production etc. We can divide into two types</p>
+                <ul>
+                  <li><b>Installation Run Modes</b> :- Installation Run Modes cannot be changed. These run modes are used at installation time and fixed for the entire lifetime of the instance. Example author, publish .</li>
+                  <li><b>Customized Run Modes</b> :- Customized run modes are applied on each startup and can be changed with a restart of AEM instance. These are custom run modes defined for specific environment like development (config.author.dev), or production(config.publish.prod).</li>
+                </ul>
+                <p></p>
+                <p>Set up a different log level in local.</p>
+                <ul>
+                  <li>Go to CRXDE lite.</li>
+                  <li>Go to /apps/(mycompany)</li>
+                  <li>Create runmodes folder.</li>
+                  <li>Create config.author folder<br>
+                  <br>
+                  <img src="pics/service_config_author.PNG" alt="service config author" style="width:800px;height:272px;"></li>
+                  <li>Create a node under the config.author folder<br>
+                  Node name: Persistent Identity(PID) of the configuration.<br>
+                  Type: sling:OsgiConfig.<br>
+                  <br>
+                  <img src="pics/service_configuration.PNG" alt="service configuration" style="width:800px;height:600px;"><br>
+                  <br>
+                  <img src="pics/service_runmode_node_name.PNG" alt="service runmode nodename.PNG" style="width:421px;height:261px;"><br>
+                  <br></li>
+                  <li>Add property org.apache.sling.commons.log.level on org.apache.sling.commons.log.LogManager for changing log level specific to environment. <img src="pics/service_runmode_page_property.PNG" alt="service runmode nodename.PNG" style="width:800px;height:244px;"></li>
+                  <li>click on save</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse9">9. Difference between component-oriented approach and service oriented approach</a></h4>
+            </div>
+            <div id="collapse9" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>component-oriented approach - the architect focuses on the provider’s view. It is focused on ensuring that the component they provide is packaged in such a way that it makes their life easier.</p>
+                <p>service-oriented approach - the architect focuses on the consumer’s view. It is focused on supplying a function or set of functions to consumers who typically have little interestin how the internals of the individual component are constructed, but have specific requirements for how they want the function to behave.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse10">10. You want to change the configuration of a bundle during runtime in the repository. Which location has the highest priority?</a></h4>
+            </div>
+            <div id="collapse10" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>/apps/*/config/*</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse11">11. Suppose you have two Service Classes ServiceClassImplA and ServiceClassImplB. Both these classes have implemented ServiceClass interface. How you will call ServiceClassImplA service?<br></a></h4>
+            </div>
+            <div id="collapse11" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>There is a OPTIONAL_MULTIPLE, OPTIONAL_UNARY and MANDATORY_UNARY set of flags for the carnality. The optional equivalents just mean they can be null and you probably should check and see if any exist. We can achieve this by OPTIONAL_MULTIPLE cardinality. Please watch this video</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse12">12. How does the Configuration Admin service use Persistence IDs (PID)?</a></h4>
+            </div>
+            <div id="collapse12" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Configuration Admin service associates the service configuration data with PIDs. The PID is just a string, which must be globally unique.</p>Read more
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse13">13. When you are saving or updating a configuration in the Configurations tab in the Apache Felix Web OSGi Console, where are these configuration settings saved?</a></h4>
+            </div>
+            <div id="collapse13" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>It will be saved under /crx-quickstart/launchpad/config/.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse14">14. How to register a service using bundlecontext?</a></h4>
+            </div>
+            <div id="collapse14" class="panel-collapse collapse">
+              <div class="panel-body">
+                Check this link http://baptiste-wicht.com/posts/2010/07/osgi-hello-world-services.html
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="container-fluid text-center">
+      <p>Please send your queries or suggestions at aeminterviewquestions@gmail.com(Abhinash Kumar Singh)</p>
+    </footer>
+  </div>
+</body>
+</html>

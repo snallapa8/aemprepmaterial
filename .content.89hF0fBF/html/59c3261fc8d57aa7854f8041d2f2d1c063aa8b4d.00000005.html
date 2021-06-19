@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dispatcher</title>
+  <meta charset="utf-8">
+  <meta name="description" content="AEM Interview Questions">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1828962054294466",
+    enable_page_level_ads: true
+  });
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="code/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">AEM Interview Questions</a> <a class="navbar-brand" href="#" id="heading">&gt; dispatcher</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li>Dispatcher</li>
+          <li>
+            <a href="index.html">Aem Introduction</a>
+          </li>
+          <li>
+            <a href="osgi.html">OSGI</a>
+          </li>
+          <li>
+            <a href="sling.html">Sling</a>
+          </li>
+          <li>
+            <a href="repository.html">Repository</a>
+          </li>
+          <li>
+            <a href="component.html">Component & Template</a>
+          </li>
+          <li>
+            <a href="sightly.html">Sightly</a>
+          </li>
+          <li>
+            <a href="servlet.html">Servlet</a>
+          </li>
+          <li>
+            <a href="service.html">Service</a>
+          </li>
+          <li>
+            <a href="clientlibs.html">Client Library</a>
+          </li>
+          <li>
+            <a href="workflow.html">Workflow</a>
+          </li>
+          <li>
+            <a href="scheduler.html">Schedular</a>
+          </li>
+          <li>
+            <a href="eventhandling.html">EventHandling</a>
+          </li>
+          <li>
+            <a href="multi-site_manager.html">Multisite Management</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+        <div class="scroll-sidebar">
+          <p>Dispatcher</p>
+          <p><a href="index.html">Aem Introduction
+          <p></p>
+          <p></p></a><a href="osgi.html">OSGI</a></p>
+          <p><a href="sling.html">Sling</a></p>
+          <p><a href="repository.html">Repository</a></p>
+          <p><a href="component.html">Component & Template</a></p>
+          <p><a href="sightly.html">Sightly</a></p>
+          <p><a href="servlet.html">Servlet</a></p>
+          <p><a href="service.html">Service</a></p>
+          <p><a href="clientlibs.html">Client Library</a></p>
+          <p><a href="workflow.html">Workflow</a></p>
+          <p><a href="scheduler.html">Schedular</a></p>
+          <p><a href="eventhandling.html">EventHandling</a></p>
+          <p><a href="multi-site_manager.html">Multisite Management</a></p>
+        </div>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>Dispatcher</h1>
+        <p>Dispatcher is Adobe Experience Manager's caching and/or load balancing tool. Dispatcher also helps to protect your AEM server from attack.</p>
+        <p>The Dispatcher helps realize an environment i.e both fast and dynamic. It works as a part of a static HTML server, with the aim of :</p>
+        <ul>
+          <li>Storing as much of the site content as is possible, in the form of static website.</li>
+          <li>Accessing the layout as little as possible. more</li>
+        </ul>
+        <p></p>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h2>Interview Questions</h2>
+        <p><strong>Note:</strong> For more on <strong>Dispatcher</strong> watch this video <i class="fa fa-video-camera" style="font-size:28px;color:green"></i></p>
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">1. What is dispatcher?</a></h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Dispatcher is Adobe Experience Manager's caching and/or load balancing tool. Dispatcher also helps to protect your AEM server from attack.</p>
+                <p>The Dispatcher helps realize an environment i.e both fast and dynamic. It works as a part of a static HTML server, with the aim of :</p>
+                <ul>
+                  <li>Storing as much of the site content as is possible, in the form of static website.</li>
+                  <li>Accessing the layout as little as possible.</li>
+                </ul>
+                <p></p>
+                <p>For caching, the Dispatcher module uses the Web server's ability to serve static content. The Dispatcher places the cached documents in the document root of the Web server.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">2. How does the Dispatcher perform caching?</a></h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The Dispatcher uses the web server's ability to serve static content. The Dispatcher stores cached documents in the web server’s document root. The Dispatcher has two primary methods for updating the cache content when changes are made to the website.</p>
+                <ul>
+                  <li>Content Updates remove the pages that have changed, as well as files that are directly associated with them.</li>
+                  <li>Auto-Invalidation automatically invalidates those parts of the cache that may be out of date after an update. For example, it effectively flags relevant pages as being out of date, without deleting anything.</li>
+                </ul>Example of cache section:
+                <p></p>
+                <div class="alert alert-success">
+                  <b>/cache</b><br>
+                  {<br>
+                  <b>/docroot</b> "/opt/dispatcher/cache"<br>
+                  <b>/statfile</b> "/tmp/dispatcher-website.stat"<br>
+                  <b>/allowAuthorized</b> "0"<br>
+                  <b>/rules</b><br>
+                  {<br>
+                  # List of files that are cached<br>
+                  }<br>
+                  <b>/invalidate</b><br>
+                  {<br>
+                  # List of files that are auto-invalidated<br>
+                  }<br>
+                  }<br>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">3. How does dispatcher perform load balancing? What are benefits of load balancing?</a></h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Load Balancing distributes user requests (load) across different clustered CQ instances.The following list describes the advantages for load balancing:<br></p>
+                <ul>
+                  <li><b>Increased processing power</b>: In practice this means that the Dispatcher shares document requests between several instances of AEM. Because each instance has fewer documents to process, you have faster response times. The Dispatcher keeps internal statistics for each document category, so it can estimate the load and distribute the queries efficiently.</li>
+                  <li><b>Increased fail-safe coverage</b>:If the Dispatcher does not receive responses from an instance, it will automatically relay requests to one of the other instance(s). Thus, if an instance becomes unavailable, the only effect is a slowdown of the site, proportionate to the computational power lost.</li>
+                </ul>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4">4. What is statfile?</a></h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The /statfile property identifies the file to use as the statfile. Dispatcher uses this file to register the time of the most recent content update. The statfile can be any file on the web server.</p>
+                <p>The statfile has no content. When content is updated, Dispatcher updates the timestamp. The default statfile is named .stat and is stored in the docroot. Dispatcher blocks access to the statfile. Example:</p>
+                <div class="alert alert-success">
+                  /cache<br>
+                  {<br>
+                  /docroot "/opt/dispatcher/cache"<br>
+                  <b>/statfile</b> "/tmp/dispatcher-website.stat"<br>
+                  /allowAuthorized "0"<br>
+                  /rules<br>
+                  {<br>
+                  # List of files that are cached<br>
+                  }<br>
+                  /invalidate<br>
+                  {<br>
+                  # List of files that are auto-invalidated<br>
+                  }<br>
+                  }<br>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5">5. What is dispatcher.any file?</a></h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>By default the Dispatcher configuration is stored in the dispatcher.any text file, though you can change the name and location of this file during installation.</p>
+                <p>The configuration file contains a series of single-valued or multi-valued properties that control the behavior of Dispatcher:</p>
+                <ul>
+                  <li>Property names are prefixed with a forward slash ("/").</li>
+                  <li>Multi-valued properties enclose child items using braces ("{ }").</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6">6. What are the requests not cached by dispatcher?</a></h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>By default the following requests are not cached by dispatcher</p>
+                <ul>
+                  <li>Request that do not return http code 200</li>
+                  <li>Requests with suffixes</li>
+                  <li>Requests with request parameter(i.e ?)</li>
+                  <li>Programatically: send http header<br>
+                  response.setHeader("Dispatcher", "no-cache")</li>
+                </ul>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse7">7. How to restrict external access to resources in Dispatcher ?</a></h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The Dispatcher filter can be used to allow or deny external access to specific areas of AEM. To protect our instance we should configure the Dispatcher to restrict external access as far as possible. First we should deny access to all files and then allow/deny access to specific areas. Example</p>
+                <div class="alert alert-success">
+                  /filter {<br>
+                  /0001 { /glob "*" /type "deny" }<br>
+                  /0002 { /type <b>"allow"</b> /url "/libs/cq/workflow/content/console*" }<br>
+                  /0003 { /type <b>"deny"</b> /url "/libs/cq/workflow/content/console/archive*" }<br>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse8">8. How does the Dispatcher return documents?</a></h4>
+            </div>
+            <div id="collapse8" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>We can define whether the Dispatcher caches a document by using the Dispatcher configuration file, dispatcher.any. The Dispatcher checks the request against the list of cacheable documents. If the document is not in this list, the Dispatcher requests the document from the AEM instance. The Dispatcher always requests the document directly from the AEM instance in the following cases:</p>
+                <ul>
+                  <li>If the HTTP method is not GET. Other common methods are POST for form data and HEAD for the HTTP header.</li>
+                  <li>If the request URI contains a question mark "?". This usually indicates a dynamic page, such as a search result, which does not need to be cached.</li>
+                  <li>The file extension is missing. The web server needs the extension to determine the document type (the MIME-type).</li>
+                  <li>The authentication header is set (this can be configured).</li>
+                </ul>
+                <p>The Dispatcher stores cached files on the web server as if they were part of a static website. If a user requests a cached document, the Dispatcher checks whether the document exists in the web server's file system. If so, the Dispatcher returns the documents. If not, the Dispatcher requests the document from the AEM instance.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse9">9. How to implement permission sensitive caching ?</a></h4>
+            </div>
+            <div id="collapse9" class="panel-collapse collapse">
+              <div class="panel-body">
+                https://docs.adobe.com/docs/en/dispatcher/permissions-cache.html
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse10">10. Can I cache only files with specific extensions?</a></h4>
+            </div>
+            <div id="collapse10" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Yes. For example, if you want to cache only GIF files, specify *.gif in the cache section of the dispatcher.any configuration file.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse11">11. How does the Dispatcher determine if a document is up-to-date?</a></h4>
+            </div>
+            <div id="collapse11" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul>
+                  <li>If the document is not subject to auto-invalidation. Dispatcher will consider it as up-to-date.</li>
+                  <li>If the document is subject to auto-invalidation. Dispatcher checks whether it is latest version or not. If not Dispatcher will request the current version from AEM.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse12">12. Can I implement multiple Dispatchers in a setup?</a></h4>
+            </div>
+            <div id="collapse12" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Yes. In such cases, ensure that both the Dispatchers can access the CQ website directly. A Dispatcher cannot handle requests coming from another Dispatcher.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse13">13. Can a Dispatcher and a AEM Publish instance reside on the same physical machine?</a></h4>
+            </div>
+            <div id="collapse13" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Yes, if the machine is sufficiently powerful. However, it is recommended that you set up the Dispatcher and the AEM Publish instance on different machines.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse14">14. Can I use sticky connections and caching in tandem?</a></h4>
+            </div>
+            <div id="collapse14" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>For most pages that use sticky connections, you should turn off caching. Otherwise, the same instance of the page is displayed to all users, regardless of the session content.</p>
+                <p>For some applications, it can be possible to use both sticky connections and caching. For example, if you display a form that writes data to a session, you can use sticky connections and caching in tandem.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse15">15. Can we run AEM website without Dispatcher?</a></h4>
+            </div>
+            <div id="collapse15" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Yes we can. But it is very bad idea.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse16">16. Can I have Dispatcher for AEM author instance?</a></h4>
+            </div>
+            <div id="collapse16" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Yes, We can have Dispatcher for AEM author instance.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse17">17. How do I delete files from the cache?</a></h4>
+            </div>
+            <div id="collapse17" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>We can delete files from the CQ cache by using an HTTP request. When the HTTP request is received, Dispatcher deletes the files from the cache. Dispatcher caches the files again only when it receives a client request for the page. Deleting cached files in this manner is appropriate for web sites that are not likely to receive simultaneous requests for the same page.</p>
+                <p>The HTTP request has the following syntax:</p><i>POST /dispatcher/invalidate.cache HTTP/1.1<br>
+                CQ-Action: Activate<br>
+                CQ-Handle: path-pattern<br>
+                Content-Length: 0</i>
+                <p>Dispatcher deletes the cached files and folders that have names that match the value of the CQ-Handle header. For example, a CQ-Handle of /content/geomtrixx-outdoors/en matches the following items:</p>
+                <ul>
+                  <li>All files (of any file extension) named en in the geometrixx-outdoors directory</li>
+                  <li>Dispatcher only flushes files or directories that match en.* in the geometrixx-outdoors directory. The directory en itself will only be deleted if the "CQ-Action" is "Delete" or "Deactivate".</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse18">18. How to prevent one particular component to be cached, while you are caching the whole page into dispatcher?</a></h4>
+            </div>
+            <div id="collapse18" class="panel-collapse collapse">
+              <div class="panel-body">
+                We have to configure the component(which we don't want to be cached) into <b>Sling Dynamic Include (SDI)</b> configuration.<br>
+                <br>
+                <img src="pics/sling_dynamic_include.PNG" alt="sling dynamic include" style="width:800px;height:475px;"><br>
+                <br>
+                <br>
+                <p>Sling Dynamic Include (SDI) is an OSGi service that is able to automatically replace configured components with the include tags. we can enter list of components (using their resource types) into SDI configuration, choose the include tag type (SSI, ESI or AJAX) and SDI will do the rest. It's totally transparent, we can use it with any components and developers don't have to write any code related to the includes. Every configuration change is seen immediately in the page content. we can enable it only on production machines or on the publish instances, etc. more</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse19">19. What are the documents cached by dispatcher?</a></h4>
+            </div>
+            <div id="collapse19" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>We configure caching behavior inside /cache property. Inside /rules property, we can mention the list of cacheable documents.</p>
+                <div class="alert alert-success">
+                  &ensp;/cache<br>
+                  &ensp;&ensp; {<br>
+                  &ensp;&ensp;# Cache configuration<br>
+                  &ensp;&ensp; /rules<br>
+                  &ensp;&ensp;&ensp;{<br>
+                  &ensp;&ensp;&ensp;&ensp; # List of cachable documents<br>
+                  &ensp;&ensp;&ensp; }<br>
+                  &ensp;&ensp;&ensp;/invalidate<br>
+                  &ensp;&ensp;&ensp;{<br>
+                  &ensp;&ensp;&ensp;&ensp;# List of auto-invalidated documents<br>
+                  &ensp;&ensp;&ensp; }<br>
+                  &ensp;&ensp;}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse20">20. What are the documents subjects to auto invalidation for dispatcher?</a></h4>
+            </div>
+            <div id="collapse20" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>We configure caching behavior inside /cache property. Inside <b>/invalidate</b> property, we can mention the list of documents which are subject to auto-invalidation.</p>
+                <div class="alert alert-success">
+                  &ensp;/cache<br>
+                  &ensp;&ensp; {<br>
+                  &ensp;&ensp;# Cache configuration<br>
+                  &ensp;&ensp; /rules<br>
+                  &ensp;&ensp;&ensp;{<br>
+                  &ensp;&ensp;&ensp;&ensp; # List of cachable documents<br>
+                  &ensp;&ensp;&ensp; }<br>
+                  &ensp;&ensp;&ensp;/invalidate<br>
+                  &ensp;&ensp;&ensp;{<br>
+                  &ensp;&ensp;&ensp;&ensp;# List of auto-invalidated documents<br>
+                  &ensp;&ensp;&ensp; }<br>
+                  &ensp;&ensp;}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse21">21. What is /renders property?</a></h4>
+            </div>
+            <div id="collapse21" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The /renders property defines the URL to which Dispatcher sends requests to render a document. The following example /renders section distributes render requests equally among two AEM instances:</p>
+                <div class="alert alert-success">
+                  &ensp;/renders<br>
+                  &ensp;&ensp;{<br>
+                  &ensp;&ensp; /myFirstRenderer<br>
+                  &ensp;&ensp;&ensp;{<br>
+                  &ensp;&ensp;&ensp;&ensp;/hostname "myCompany.com"<br>
+                  &ensp;&ensp;&ensp;&ensp; /port "4503"<br>
+                  &ensp;&ensp;&ensp;}<br>
+                  &ensp;&ensp;/mySecondRenderer<br>
+                  &ensp;&ensp;&ensp; {<br>
+                  &ensp;&ensp;&ensp;&ensp;/hostname "127.0.0.1" #runs on the same computer as Dispatcher<br>
+                  &ensp;&ensp;&ensp;&ensp;/port "4503"<br>
+                  &ensp;&ensp;&ensp; }<br>
+                  &ensp;&ensp; }
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse22">22. How to setup Dispatcher in AEM?</a></h4>
+            </div>
+            <div id="collapse22" class="panel-collapse collapse">
+              <div class="panel-body">
+                http://www.aemcq5tutorials.com/tutorials/set-up-dispatcher-in-aem/
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="container-fluid text-center">
+      <p>Please send your queries or suggestions at aeminterviewquestions@gmail.com(Abhinash Kumar Singh)</p>
+    </footer>
+  </div>
+</body>
+</html>

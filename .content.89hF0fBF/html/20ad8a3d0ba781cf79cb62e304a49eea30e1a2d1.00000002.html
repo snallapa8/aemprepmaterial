@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Client Libraries</title>
+  <meta charset="utf-8">
+  <meta name="description" content="AEM Interview Questions">
+  <meta name="keywords" content="Client Libraries,create Client Library,categories in Client Library,dependencies in Client Library,embed properties in AEM,include Client Libraries into page,debug client library files in browser, invalidate and rebuild the ClientLibs, Minify Client Libraries,debug Client Libraries,restrict Client Libraries,channels property in clientlib">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1828962054294466",
+    enable_page_level_ads: true
+  });
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="code/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">AEM Interview Questions</a> <a class="navbar-brand" href="#" id="heading">&gt; Client Libraries</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li>Client Library</li>
+          <li>
+            <a href="index.html">Aem Introduction</a>
+          </li>
+          <li>
+            <a href="osgi.html">OSGI</a>
+          </li>
+          <li>
+            <a href="sling.html">Sling</a>
+          </li>
+          <li>
+            <a href="repository.html">Repository</a>
+          </li>
+          <li>
+            <a href="component.html">Component & Template</a>
+          </li>
+          <li>
+            <a href="sightly.html">Sightly</a>
+          </li>
+          <li>
+            <a href="servlet.html">Servlet</a>
+          </li>
+          <li>
+            <a href="service.html">Service</a>
+          </li>
+          <li>
+            <a href="workflow.html">Workflow</a>
+          </li>
+          <li>
+            <a href="scheduler.html">Schedular</a>
+          </li>
+          <li>
+            <a href="eventhandling.html">EventHandling</a>
+          </li>
+          <li>
+            <a href="multi-site_manager.html">Multisite Management</a>
+          </li>
+          <li>
+            <a href="dispatcher.html">Dispatcher</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+        <div class="scroll-sidebar">
+          <p>Client Library</p>
+          <p><a href="index.html">Aem Introduction
+          <p></p>
+          <p></p></a><a href="osgi.html">OSGI</a></p>
+          <p><a href="sling.html">Sling</a></p>
+          <p><a href="repository.html">Repository</a></p>
+          <p><a href="component.html">Component & Template</a></p>
+          <p><a href="sightly.html">Sightly</a></p>
+          <p><a href="servlet.html">Servlet</a></p>
+          <p><a href="service.html">Service</a></p>
+          <p><a href="workflow.html">Workflow</a></p>
+          <p><a href="scheduler.html">Schedular</a></p>
+          <p><a href="eventhandling.html">EventHandling</a></p>
+          <p><a href="multi-site_manager.html">Multisite Management</a></p>
+          <p><a href="dispatcher.html">Dispatcher</a></p>
+        </div>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>Client Libraries</h1>
+        <p>Clientlibs or Client libraries in aem is one of the most widely used features provided by Adobe, it allows us to not only manage our client side resources like ( JavaScript, CSS, images, fonts etc ), but also provide options to debug, minify,merge and gzip the client-side code.<br></p>
+        <p>The centralized approach entails bundling all client libraries into monolithic and all-encompassing.JS and .CSS files within /etc/designs/{project}/clientlibs. This type of clientlib is loaded by default for every page within a project and it doesn’t need to be called explicitly. The biggest obstacle to this is large files that load all the JS and CSS regardless of whether or not the page actually needs it, at the expense of page load performance.</p>Read more
+        <hr>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h2>Interview Questions</h2>
+        <p><strong>Note:</strong> For more on <strong>Client Library</strong> watch this video <i class="fa fa-video-camera" style="font-size:28px;color:green"></i></p>
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">1. How to create Client Library folder in AEM?</a></h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul>
+                  <li><b>1.</b> Open CRXDE Lite in a web browser (http://:/crx/de).</li>
+                  <li><b>2.</b> Select the folder where you want to locate the client library folder and click Create &gt; Create Node.</li>
+                  <li><b>3.</b> Enter a name for the library file, and in the Type list select cq:ClientLibraryFolder. Click OK and then click Save All.</li>
+                  <li>
+                    <b>4.</b> To specify the category or categories that the library belongs to, select the cq:ClientLibraryFolder node, add the following property, and then click Save All:
+                    <ul>
+                      <li>Name: categories</li>
+                      <li>Type: String</li>
+                      <li>Value: The category name</li>
+                      <li>Multi: Select</li>
+                    </ul>
+                  </li>
+                  <li><b>5.</b> Add source files to the library folder by any means.</li>
+                  <li><b>6.</b> Select the client library folder and click Create &gt; Create file.</li>
+                  <li>
+                    <b>7.</b> In the file name box, type one of the following file names and click OK:
+                    <ul>
+                      <li><strong>js.txt:</strong> Use this file name to generate a JavaScript file.</li>
+                      <li><strong>css.txt:</strong> Use this file name to generate a Cascading Style Sheet.</li>
+                    </ul>
+                  </li>
+                  <li><b>8.</b> Open the file and type the following text to identify the root of the path of the source files:<br>
+                  &ensp; &ensp; &ensp;#base=[root]</li>
+                  <li><b>9.</b> On the lines below #base=[root], type the paths of the source files relative to the root. Place each file name on a separate line.</li>
+                  <li><b>10.</b> Click Save All.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">2. What is categories, dependencies, embed and allowProxy properties in AEM?</a></h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><strong>categories</strong> – This is the identifier into which categories a clientlib belongs. A clientlib can have one or more categories.</p>
+                <p><strong>dependencies</strong> - This defines the other categories that the current clientlib depends upon. The dependencies will be included in the page along with the dependent clientlib.<br>
+                This property is transitive – if Clientlib A depends on Clientlib B which depends on Clientlib C, then all clientlibs will be included in the page.</p>
+                <p><strong>embed</strong> - This defines the categories which will be combined to the current clientlib. AEM will merge all clientlibs into the current clientlib. This is usually used for minimizing requests and for accessing clientlibs which are not supposed to be exposed to public.<br>
+                Take note that the embed property is NOT transitive – If Clientlib A embeds Clientlib B which embeds Clientlib C, then only Clientlib A and B will be included in the page. Clientlib A and B will be combined into one CSS and JS files as well. In order to include Clientlib C, it must be added to the embed property of Clientlib A as well.</p>
+                <p><strong>allowProxy</strong> - In order for the client libraries under /apps to be accessible, a proxy servelt is used. The ACLs are still enforced on the client library folder, but the servlet allows for the content to be read via /etc.clientlibs/ if the allowProxy property is set to true.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">3. How to include Client Libraries into page?</a></h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>1. In JSP</b><br>
+                &ensp; &ensp; &ensp; &ltcq:includeClientLib categories="yourcategoies"/&gt;</p>
+                <p><b>2. In Sightly</b><br>
+                &ensp; &ensp; &ensp;The best example is from the new foundation page component, this is located at<br>
+                <b>&ensp; &ensp; &ensp;&ensp; &ensp; &ensp;/libs/wcm/foundation/components/page/head.html.</b><br>
+                &ensp; &ensp; &ensp;There, you see the following thing:<br>
+                &ensp; &ensp; &ensp;<b>&ensp; &ensp; &ensp;data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"</b><br>
+                &ensp; &ensp; &ensp; This declares a “clientlib” object, which is implemented as a template.<br>
+                &ensp; &ensp; &ensp;After that, you see statements like following one:<br>
+                &ensp; &ensp; &ensp;<b>&ensp; &ensp; &ensp;data-sly-call="${clientlib.all @ categories='cq.jquery'}"</b><br>
+                &ensp; &ensp; &ensp;This will output &ltscript&gt; and a &ltstyle&gt; includes to all CSS and JS contained in the parameter “categories”.<br>
+                &ensp; &ensp; &ensp;You can also call “clientlib.css” and “clientlib.js” if you only want to output the CSS or JS:<br>
+                &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; <b>data-sly-call="${clientlib.js @ categories='clientlib1,clientlib2'}"</b><br>
+                &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; <b>data-sly-call="${clientlib.css @ categories='clientlib1,clientlib2'}"</b><br>
+                &ensp; &ensp; &ensp;Notice that the “categories” option can be a comma-separated string, or a list of category names.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4">4. Where are the generated client library files stored/cached in CQ?</a></h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>They are in /var/clientlibs</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5">5. Is there a console where I can see all client libraries and their dependencies?</a></h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Yes, look at this page http://server/libs/cq/ui/content/dumplibs.html</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6">6. How i can debug client library files in browser?</a></h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Yes, ?debugClientLibs=true writes out single files<br>
+                &ensp; &ensp; &ensp;&ensp; &ensp; &ensp;&ensp; &ensp; &ensp;&ensp; &ensp; &ensp;or<br>
+                Yes, ?debugClientLibs=true and CTRL+SHIFT+U gives you timing info</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse7">7. Is there a console available to invalidate and rebuild the ClientLibs?</a></h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+              <div class="panel-body">
+                Yes, via url: /libs/granite/ui/content/dumplibs.rebuild.html, we can invalidate or rebuild the clientlibs.
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse8">8. How to Minify, debug and restrict Client Libraries creation under libs?</a></h4>
+            </div>
+            <div id="collapse8" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul>
+                  <li>Go to &lthost&gt;:&ltport&gt;/system/console/configMgr</li>
+                  <li>Click on Adobe Granite HTML Library Manager below pop up will show up.</li>
+                </ul><img src="pics/clientlibs.PNG" alt="Mountain View" style="width:800px;height:600;">
+                <p><b>Minify</b> - AEM handle minify automatically in non-development environments by checking the “Minify” checkbox.</p>
+                <p><b>debug</b> - Developers, check the “debug” option on your local instance. This will prevent the CQ clientlib files from being combined into one file, and makes troubleshooting javascript and css issues significantly easier.</p>
+                <p><b>Gzip</b> - gzip is a file format and a software application used for file compression and decompression. To deliver a better performance you can enable “Gzip” option for the “Adobe Granite HTML Library Manager”.</p>
+                <p><b>restrict</b> - List of paths that you are allowed to create CQ client libraries under. (htmllibmanager.path.list). By this way we can restrict clientlib creation.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse9">9. You want to debug a CQ HTML client library in the author instance. You want to avoid compressing the JavaScript file. What must you do?</a></h4>
+            </div>
+            <div id="collapse9" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Add a query parameter to the URL called debugClientLibs with the value true.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse10">10. You want to create a CQ HTML client library. What is the file js.txt used for?</a></h4>
+            </div>
+            <div id="collapse10" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>It will contain the paths to all the JavaScript files that will be included in the client library.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse11">11. What is the best practice with regards to performance and caching?</a></h4>
+            </div>
+            <div id="collapse11" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Via mod_expires / mod_deflate and the use of cache-busting you can cache the css/js files on the browser to increase overall performance of your pages. All of this will happen in combination with the dispatcher.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse12">12. What is the use of channels property in clientlib?</a></h4>
+            </div>
+            <div id="collapse12" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>It is used to add some additional functionality for different channels. For example : if you want to perform some JS functionality only for ie6 not for other browsers, or you want to add some CSS or JS for only touch UI. here you can use channels property .</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="container-fluid text-center">
+    <p>Please send your queries or suggestions at aeminterviewquestions@gmail.com(Abhinash Kumar Singh)</p>
+  </footer>
+</body>
+</html>

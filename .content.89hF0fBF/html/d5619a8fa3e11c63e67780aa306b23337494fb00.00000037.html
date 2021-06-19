@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Servlet</title>
+  <meta charset="utf-8">
+  <meta name="description" content="AEM Interview Questions">
+  <meta name="keywords" content="servlet in AEM, Servlet annotations in AEM,different ways to register servlet in AEM,Difference between SlingSafeMethodsServlet and SlingAllMethodsServlet,SlingSafeMethodsServlet vs SlingAllMethodsServlet,resourceresolver,get session in servlet AEM">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1828962054294466",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="code/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">AEM Interview Questions</a> <a class="navbar-brand" href="#" id="heading">&gt; servlet</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li>Servlet</li>
+          <li>
+            <a href="index.html">Aem Introduction</a>
+          </li>
+          <li>
+            <a href="osgi.html">OSGI</a>
+          </li>
+          <li>
+            <a href="sling.html">Sling</a>
+          </li>
+          <li>
+            <a href="repository.html">Repository</a>
+          </li>
+          <li>
+            <a href="component.html">Component & Template</a>
+          </li>
+          <li>
+            <a href="sightly.html">Sightly</a>
+          </li>
+          <li>
+            <a href="service.html">Service</a>
+          </li>
+          <li>
+            <a href="clientlibs.html">Client Library</a>
+          </li>
+          <li>
+            <a href="workflow.html">Workflow</a>
+          </li>
+          <li>
+            <a href="scheduler.html">Schedular</a>
+          </li>
+          <li>
+            <a href="eventhandling.html">EventHandling</a>
+          </li>
+          <li>
+            <a href="multi-site_manager.html">Multisite Management</a>
+          </li>
+          <li>
+            <a href="dispatcher.html">Dispatcher</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+        <div class="scroll-sidebar">
+          <p>Servlet</p>
+          <p><a href="index.html">Aem Introduction
+          <p></p>
+          <p></p></a><a href="osgi.html">OSGI</a></p>
+          <p><a href="sling.html">Sling</a></p>
+          <p><a href="repository.html">Repository</a></p>
+          <p><a href="component.html">Component & Template</a></p>
+          <p><a href="sightly.html">Sightly</a></p>
+          <p><a href="service.html">Service</a></p>
+          <p><a href="clientlibs.html">Client Library</a></p>
+          <p><a href="workflow.html">Workflow</a></p>
+          <p><a href="scheduler.html">Schedular</a></p>
+          <p><a href="eventhandling.html">EventHandling</a></p>
+          <p><a href="multi-site_manager.html">Multisite Management</a></p>
+          <p><a href="dispatcher.html">Dispatcher</a></p>
+        </div>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>Servlet</h1>
+        <p>Servlet is a Java programming language class that is used to extend the capabilities of servers that host applications accessed by means of a request-response programming model. Although servlets can respond to any type of request, they are commonly used to extend the applications hosted by web servers.</p>
+        <p>Servlets can be registered as OSGi services. For a Servlet registered as an OSGi service to be used by the Sling Servlet Resolver, the following restrictions apply:</p>
+        <ul>
+          <li>Either the sling.servlet.paths or the sling.servlet.resourceTypes service reference property must be set. If neither is set, the Servlet service is ignored.</li>
+          <li>If the sling.servlet.paths property is set, all other sling.servlet.* properties are ignored.</li>
+          <li>Otherwise a Resource provider is registered for the Servlet for each permutation resource types, selectors, extensions and methods.</li>
+        </ul>Read more
+        <hr>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h2>Interview Questions</h2>
+        <p><strong>Note:</strong> For more on <strong>creating the servlet</strong> watch this video <i class="fa fa-video-camera" style="font-size:28px;color:green"></i></p>
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">1. How to register Servlet using Java annotations?</a></h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>There are two ways of doing this</p>
+                <ul>
+                  <li>1. The @SlingServlet annotation
+                    <div class="alert alert-success">
+                      @SlingServlet(<br>
+                      resourceTypes = "sling/servlet/default",<br>
+                      selectors = "hello",<br>
+                      extensions = "html",<br>
+                      methods = "GET")<br>
+                      public class MyServlet extends SlingSafeMethodsServlet {<br>
+                      @Override<br>
+                      protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {<br>
+                      ...<br>
+                      }<br>
+                      }
+                    </div>
+                  </li>
+                  <li>2. The @Properties and @Property annotations
+                    <div class="alert alert-success">
+                      @Component(metatype = true)<br>
+                      @Service(Servlet.class)<br>
+                      @Properties({<br>
+                      @Property(name = "sling.servlet.resourceTypes", value = "sling/servlet/default"),<br>
+                      @Property(name = "sling.servlet.selectors", value = "hello"),<br>
+                      @Property(name = "sling.servlet.extensions", value = "html"),<br>
+                      @Property(name = "sling.servlet.methods", value = "GET")<br>
+                      })<br>
+                      public class MyServlet extends SlingSafeMethodsServlet {<br>
+                      @Override<br>
+                      protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {<br>
+                      ...<br>
+                      }<br>
+                      }
+                    </div>
+                  </li>
+                </ul>
+                <p>We should prefer @SlingServlet annotation.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">2. How are different ways to register servlet in AEM?</a></h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>You can register a Servlet using the two Standard approaches:</p>
+                <ul>
+                  <li>1. Registering the servlet by path
+                    <div class="alert alert-success">
+                      @SlingServlet(<br>
+                      paths={"/bin/customservlet/path"} )<br>
+                      @Properties({<br>
+                      @Property(name="service.pid", value="com.day.servlets.SampleServlet",propertyPrivate=false),<br>
+                      @Property(name="service.description",value="SampleDescription", propertyPrivate=false),<br>
+                      @Property(name="service.vendor",value="SampleVendor", propertyPrivate=false)<br>
+                      })<br>
+                      public class SampleServletname extends SlingAllMethodsServlet<br>
+                      {<br>
+                      @Override<br>
+                      protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException<br>
+                      {<br>
+                      }<br>
+                      }
+                    </div>
+                  </li>
+                  <li>2. Register servlet by ResourceType
+                    <div class="alert alert-success">
+                      @SlingServlet(<br>
+                      resourceTypes = "sling/servlet/path",<br>
+                      selectors = "json",<br>
+                      extensions = "html",<br>
+                      methods = "GET")<br>
+                      public class MyServlet extends SlingSafeMethodsServlet {<br>
+                      @Override<br>
+                      protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {<br>
+                      ...<br>
+                      }<br>
+                      }
+                    </div>
+                    <p>The resource type(s) supported by the servlet. The property value must either be a single String, an array of Strings or a Vector of Strings. This property is ignored if the sling.servlet.paths property is set. More on <strong>Register servlet by Resource Type</strong> watch this video</p>
+                    <p></p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">3. Difference between SlingSafeMethodsServlet and SlingAllMethodsServlet.</a></h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>SlingSafeMethodsServlet</b> - Helper base class for read-only Servlets used in Sling. This base class is actually just a better implementation of the Servlet API HttpServlet class which accounts for extensibility. So extensions of this class have great control over what methods to overwrite. It supports GET, HEAD, OPTIONS etc methods. Read more</p>
+                <p><b>SlingAllMethodsServlet</b> - Helper base class for data modifying Servlets used in Sling. This class extends the SlingSafeMethodsServlet by support for the POST, PUT and DELETE methods. Read more</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4">4. Suppose I have added sling.servlet.paths and sling.servlet.resourceTypes both in servlet. What will happen?</a></h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Suppose I have added sling.servlet.paths and sling.servlet.resourceTypes both in servlet. <b>sling.servlet.resourceTypes property is ignored if the sling.servlet.paths property is set.</b></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5">5. How to get session in servlet?</a></h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul>
+                  <li>We can get session from SlingHttpServletRequest.<br>
+                    <div class="alert alert-success">
+                      <strong>Session session</strong> = slingHttpServletRequest.getResourceResolver().adaptTo(Session.class)
+                    </div>
+                  </li>
+                  <li>From ResourceResolverFactory,
+                    <div class="alert alert-success">
+                      @SlingServlet(<br>
+                      resourceTypes = "sling/servlet/path",<br>
+                      selectors = "json",<br>
+                      extensions = "html",<br>
+                      methods = "GET")<br>
+                      public class MyServlet extends SlingSafeMethodsServlet {<br>
+                      &ensp; @Refrence<br>
+                      &ensp; ResourceResolverFactory resourceResolverFactory<br>
+                      @Override<br>
+                      &ensp; protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {<br>
+                      &ensp; &ensp; &ensp; Map param = new HashMap();<br>
+                      &ensp; &ensp; &ensp;param.put(ResourceResolverFactory.SUBSERVICE, "readservice");<br>
+                      &ensp; &ensp; &ensp; ResourceResolver resolver = null;<br>
+                      &ensp; &ensp; &ensp; try {<br>
+                      &ensp; &ensp; &ensp; //Invoke the getServiceResourceResolver method to create a Session instance<br>
+                      &ensp; &ensp; &ensp;resolver = resourceResolverFactory.getServiceResourceResolver(param);<br>
+                      &ensp; &ensp; &ensp;<strong>Session session</strong> = resolver.adaptTo(Session.class);<br>
+                      }<br>
+                      }
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6">6. What is resourceresolver?</a></h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The ResourceResolver defines the service API which may be used to resolve Resource objects. The resource resolver is available to the request processing servlet through the SlingHttpServletRequest.getResourceResolver() method. A resource resolver can also be created through the ResourceResolverFactory. The ResourceResolver is also an Adaptable to get adapters to other types.</p>Read more
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse7">7. Registering the servlet by path vs ResourceType?</a></h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Registering the servlet by resourceType is more preferential than path , because</p>
+                <ul>
+                  <li>use of resourceType is that the Sling Engine will take care of permissions for you. Users who cannot access a particular resource will not be able to invoke the servlet. Hence register by resourcetype is more secure.</li>
+                  <li>While defining a path , you must be specific what all paths are allowed to be used in the ServletResource OSGi service. If you define something randomly, your servlet might not be fucntional. Only a limited paths are allowed and the rest are blocked unless you open them up. This is resolved using resourceType.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse8">8. what is serialVersionUID in servlet?</a></h4>
+            </div>
+            <div id="collapse8" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The serialization runtime associates with each serializable class a version number, called a serialVersionUID, which is used during deserialization to verify that the sender and receiver of a serialized object have loaded classes for that object that are compatible with respect to serialization. If the receiver has loaded a class for the object that has a different serialVersionUID than that of the corresponding sender's class, then deserialization will result in an InvalidClassException. A serializable class can declare its own serialVersionUID explicitly by declaring a field named "serialVersionUID" that must be static, final, and of type long:</p>
+                <div class="alert alert-success">
+                  ANY-ACCESS-MODIFIER static final long serialVersionUID = 1L;
+                </div>
+                <p>If a serializable class does not explicitly declare a serialVersionUID, then the serialization runtime will calculate a default serialVersionUID value for that class based on various aspects of the class, as described in the Java(TM) Object Serialization Specification. However, it is strongly recommended that all serializable classes explicitly declare serialVersionUID values, since the default serialVersionUID computation is highly sensitive to class details that may vary depending on compiler implementations, and can thus result in unexpected InvalidClassExceptions during deserialization</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="container-fluid text-center">
+      <p>Please send your queries or suggestions at aeminterviewquestions@gmail.com(Abhinash Kumar Singh )</p>
+    </footer>
+  </div>
+</body>
+</html>

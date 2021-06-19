@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Component and Template</title>
+  <meta charset="utf-8">
+  <meta name="description" content="AEM Interview Questions">
+  <meta name="keywords" content="component and template,Dialog vs Design Dialog,Difference between parsys and iparsys, overlaying in AEM, global.jsp in CQ5, EditConfig in AEM,cq:editConfig,parbase,sling:resourceSuperType,sling:resourceType,Difference between sling:resourceSuperType and sling:resourceType,sling:resourceSuperType vs sling:resourceType,sling:include,c:import,cq:include,include component AEM,jcr:primaryType vs jcr:mixinTypes,Difference between jcr:primaryType and jcr:mixinTypes,include sidekick into page,widget in AEM,Xtype in AEM,custom xtype,xtype of Dropdown list,xtype of Checkbox,xtype Radio button,allowedPaths in AEM,allowedChildren in AEM,allowedParents in AEM,allowedPaths in component,allowedChildren in component,allowedParents in component,ranking in template,componentGroup ,cq:isContainer,cq:noDecoration,sling resource merger, Scaffolding">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1828962054294466",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="code/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">AEM Interview Questions</a> <a class="navbar-brand" href="#" id="heading">&gt; component and template</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li>Component & Template</li>
+          <li>
+            <a href="index.html">Aem Introduction</a>
+          </li>
+          <li>
+            <a href="osgi.html">OSGI</a>
+          </li>
+          <li>
+            <a href="sling.html">Sling</a>
+          </li>
+          <li>
+            <a href="repository.html">Repository</a>
+          </li>
+          <li>
+            <a href="sightly.html">Sightly</a>
+          </li>
+          <li>
+            <a href="servlet.html">Servlet</a>
+          </li>
+          <li>
+            <a href="service.html">Service</a>
+          </li>
+          <li>
+            <a href="clientlibs.html">Client Library</a>
+          </li>
+          <li>
+            <a href="workflow.html">Workflow</a>
+          </li>
+          <li>
+            <a href="scheduler.html">Schedular</a>
+          </li>
+          <li>
+            <a href="eventhandling.html">EventHandling</a>
+          </li>
+          <li>
+            <a href="multi-site_manager.html">Multisite Management</a>
+          </li>
+          <li>
+            <a href="dispatcher.html">Dispatcher</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+        <div class="scroll-sidebar">
+          <p>Component & Template</p>
+          <p><a href="index.html">Aem Introduction
+          <p></p>
+          <p></p></a><a href="osgi.html">OSGI</a></p>
+          <p><a href="sling.html">Sling</a></p>
+          <p><a href="repository.html">Repository</a></p>
+          <p><a href="sightly.html">Sightly</a></p>
+          <p><a href="servlet.html">Servlet</a></p>
+          <p><a href="service.html">Service</a></p>
+          <p><a href="clientlibs.html">Client Library</a></p>
+          <p><a href="workflow.html">Workflow</a></p>
+          <p><a href="scheduler.html">Schedular</a></p>
+          <p><a href="eventhandling.html">EventHandling</a></p>
+          <p><a href="multi-site_manager.html">Multisite Management</a></p>
+          <p><a href="dispatcher.html">Dispatcher</a></p>
+        </div>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>Component and Template</h1>
+        <p>Components are re-usable modules that implement specific application logic to render the content of our website.</p>
+        <p>A Template is used to create a Page and defines which components can be used within the selected scope. A template is a hierarchy of nodes that has the same structure as the page to be created, but without any actual content.</p>
+        <hr>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h2>Interview Questions</h2>
+        <p><strong>Note:</strong> More on <strong>creating the Components</strong> watch this <i class="fa fa-video-camera" style="font-size:28px;color:green"></i></p>
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">1. What is Dialog, Design Dialog and cq:dialog?</a></h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>dialog</th>
+                      <th>design-dialog</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Dialog will change the content at the page level.</td>
+                      <td>Design dialog will change the content at the template level.</td>
+                    </tr>
+                    <tr>
+                      <td>authored in edit mode.</td>
+                      <td>authored in design mode.</td>
+                    </tr>
+                    <tr>
+                      <td>node name should be dialog.</td>
+                      <td>node name should be design_dialog.</td>
+                    </tr>
+                    <tr>
+                      <td>stored under pages jcr:content node.</td>
+                      <td>stored under design page located under /etc/design/default.</td>
+                    </tr>
+                    <tr>
+                      <td>we can get value from properties object.</td>
+                      <td>we can get design dialog value from currentStyle object.</td>
+                    </tr>
+                    <tr>
+                      <td>jcr:primaryType is cq:Dialog.</td>
+                      <td>jcr:primaryType is cq:Dialog.</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>cq:dialog - It is the dialogs for the touch-optimized UI(editor.html).</p>
+                <ul>
+                  <li>It uses the Granite UI framework.</li>
+                  <li>Node name is cq:dialog.</li>
+                  <li>jcr:primaryType = nt:unstructured, sling:resourceType = cq/gui/components/authoring/dialog for cq:dialog</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">2. Difference between parsys and iparsys.</a></h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>parsys</b> – It is a placeholder called “Paragraph System”, where we can drag and drop or add other components or scripts at page level.</p>
+                <p><b>iparsys</b> - The inherited paragraph system is a paragraph system that also allows you to inherit the created paragraphs from the parent. it is similar to parsys except that it allows to inherits parent page “paragraph system” at template level. You can also cancel paragraph inheritance at a level at any time. It has two checkbox options to cancel/disable the inheritance.</p>
+                <ul>
+                  <li><b>Cancel Inheritance</b> - If selected, the components in this paragraph system are not passed down to the child pages.</li>
+                  <li><b>Disable Inheritance</b> - If selected, components of this paragraph system on this page are not inherited from the parent page.</li>
+                </ul>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">3. Explain overlaying concept in AEM.</a></h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>Overlaying</b> - The intention of overlaying a default component is to alter the appearance or behavior of a component globally, for all relative references to the component. It relies on the nature of sling to resolve to the /apps folder before searching in the /libs folder. Thus the path to the component is identical to the path to the default component, except it is in the /apps folder and not the /libs folder. More on <strong>overlaying</strong> watch this video</p>
+                <p>Creating a custom component manually by creating all necessary nodes and setting value of “sling:superResourceType” property as “/libs/foundation/components/image”. By doing this you inherit all the feature of image component, even after upgrade you still inherit the features of image component. For more <strong>information</strong> watch this video</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4">4. Why we need to include global.jsp if we are creating a component in jsp?</a></h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The JSP script file global.jsp is used to provide quick access to specific objects (i.e. to access content) to any JSP script file used to render a component. Therefore global.jsp should be included in every component rendering JSP script where one or more of the objects provided in global.jsp are used.</p>For more <strong>information</strong> Check this link
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5">5. What is the use of EditConfig node in creating a component?</a></h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The edit behaviour of a component is configured by adding a cq:editConfig node of type cq:EditConfig below the component node (of type cq:Component) and by adding specific properties and child nodes.</p>For more information check this link
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6">6. What is parbase?</a></h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Parbase is a key component as it allows components to inherit attributes from other components, similar to subclasses in object oriented languages such as Java, C++, and so on. For example, when you open the /libs/foundation/components/text node in the CRXDE Lite, you see that it has a property named sling:resourceSuperType, which references the parbase component. The parbase here defines tree scripts to render images, titles, and so on, so that all components subclassed from this parbase can use this script.</p>
+                <h6>Users do not need access to the parbase.</h6>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse7">7. Difference between sling:resourceSuperType and sling:resourceType.</a></h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>sling:resourceSuperType</b>: It is used to achieve inheritance in cq. When set, it inherits the specified component to this component.</p>
+                <p><b>sling:resourceType</b>: It is a path, which locates the script to be used for rendering the content. Path used can be absolute or relative.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse8">8. What is listeners node?</a></h4>
+            </div>
+            <div id="collapse8" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>We can have listeners node under dialog/widget in AEM component. Listeners is nt:unstructured type node. We can add event(like loadcontent, focus etc) as property into listeners node. Example<br></p><img src="pics/listener.PNG" alt="Listeners" style="width:741px;height:121px;">
+                <p>Listeners will trigger loadcontent event and show "Hello World" in popup.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse9">9. What is sling:include, c:import, cq:include?</a></h4>
+            </div>
+            <div id="collapse9" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>sling:include</b> - This is the include tag of the Sling JSP Tag library. This tag knows about Sling and also supportsRequestDispatcherOptions.</p>
+                <p><b>cq:include</b> - This tag is Communiqué specific extension of the Sling JSP Tag library include tag. IIRC it supports callings scripts in addition to just including renderings of resources.</p>
+                <p><b>c:import</b> - I assume this is the import tag of the Standard Tag Library. This tag is documented at http://java.sun.com/products/jsp/jstl/1.1/docs/tlddocs/c/import.html and does not know about Sling directly.<br>
+                But -- asuming -- this tag is using a RequestDispatcher to dispatch the request, this tag will also pass Sling and the Sling resource resolver.</p>For more information check this link
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse10">10. How to include component into a page?</a></h4>
+            </div>
+            <div id="collapse10" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>In Sightly -<br>
+                &lt; div data-sly-resource="${@path='mycomponent', resourceType='foundation/components/mycomponent'}"&gt;<br>
+                In JSP -<br>
+                &lt; cq:include path="mycomponent" resourceType="foundation/components/mycomponent" /&gt;</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse11">11. Difference between jcr:primaryType and jcr:mixinTypes</a></h4>
+            </div>
+            <div id="collapse11" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>There are two categories of node types, primary and mixin. Every node has a primary node type assigned to it upon creation. In addition, a mixin node type may be added to a node later in its lifecycle.</p>
+                <p>The primary node type of a node usually defines node structure (i.e., allowed and required child nodes and properties) related to the problem domain being modeled. For example, a node used in storing content about business contacts might have the primary type myapp:Contact which defines properties such as myapp:givenName, myapp:familyName and so forth.</p>
+                <p>Mixin node types usually specify additional properties or child nodes related to a capability being added to the node. These capabilities may include generic repository-level functions as in the case of the built-in mixins mix:versionable and mix:lockable, for example, or domain-level capabilities such as a (hypothetical) myapp:Emailable mixin type that adds the property myapp:emailAddress to a node.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse12">12. How to include sidekick into page?</a></h4>
+            </div>
+            <div id="collapse12" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>init.jsp should be included in our jsp or script file to display sidekick.</p>
+                <p>Note:- We should include init.jsp into base page. So that it will appear in all pages which are overriding it.</p>For more on sidekick watch this video
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse13">13. Explain widget and Xtype in AEM?</a></h4>
+            </div>
+            <div id="collapse13" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>widget</b> - Adobe Experience Manager (AEM) uses the ExtJS widgets library, which provides the highly polished user interface elements that work across all the most important browsers and allow the creation of desktop-grade UI experiences. These widgets are included within AEM and, in addition to being used by AEM itself, can be used by any website built using AEM. For more on widgets check this link</p>
+                <p><br></p>
+                <p><b>xtype</b> - In the ExtJS language, an xtype is a symbolic name given to a class. For more on xtype check this link</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse14">14. How to create custom xtype?</a></h4>
+            </div>
+            <div id="collapse14" class="panel-collapse collapse">
+              <div class="panel-body">
+                https://helpx.adobe.com/experience-manager/using/creating-custom-xtype.html
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse15">15. What is xtype of Dropdown list, Checkbox and Radio button.</a></h4>
+            </div>
+            <div id="collapse15" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>Dropdown list</b>, <b>Checkbox</b> and <b>Radio button</b> have same xtype i.e <b>selection</b>. But they have different type <b>select</b>, <b>checkbox</b> and <b>radio</b> respectively.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse16">16. Difference between allowedPaths, allowedChildren and allowedParents?</a></h4>
+            </div>
+            <div id="collapse16" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>allowedPaths</b> - Path of a page that is allowed to be based on this template.</p>
+                <p><b>allowedChildren</b> - Path of a template that is allowed to be a child of this template.</p>
+                <p><b>allowedParents</b> - Path of a template that is allowed to be a parent of this template.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse17">17. What is the ranking at the time of creating template?</a></h4>
+            </div>
+            <div id="collapse17" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>ranking</b> - Rank of the template. Used to display the template in the User Interface.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse18">18. Suppose you have created the page using "mytemplate" template. After the creation of page, what will happen to the page if someone deleted the "mytemplate" template?</a></h4>
+            </div>
+            <div id="collapse18" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>There will be no effect on the page because when page will be requested it will check the sling:resourcetype property of the page not the template. Check sling resolution concept</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse19">19. What is componentGroup, cq:isContainer and cq:noDecoration property ?</a></h4>
+            </div>
+            <div id="collapse19" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><b>componentGroup</b> - Group under which the component can be selected in the Sidekick.</p>
+                <p><b>cq:isContainer</b> - Checks if this component is a container component. For example a paragraph system component.</p>
+                <p><b>cq:noDecoration</b> - If true, the component is not rendered with automatically generated div and css classes.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse20">20. If I don't want to show my component in sidekick. Which property I should add in component?</a></h4>
+            </div>
+            <div id="collapse20" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Add componentGroup property in component. In componentGroup property add .hidden as a value.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse21">21. What will happen if I add another component path into sling:resourceType property of a component?</a></h4>
+            </div>
+            <div id="collapse21" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Suppose We have component A and component B</p>
+                <p>In component A, added sling:resourceType property and as value component B path</p>
+                <p>when you include the component A into the page, AEM will render component A</p>
+                <p>But when you drag and drop component A into parsys of the page, AEM will render component B</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse22">22. What is sling resource merger?</a></h4>
+            </div>
+            <div id="collapse22" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Sling framework bundle (org.apache.sling.resourcemerger) gives us flexibility to have merged view on multiple other resources. The exact merging mechanism depends on the resource picker implementation (i.e. Overlay or Override).</p>
+                <p>By this Sling Resource Merger, It is possible to</p>
+                <ul>
+                  <li>1. remove existing resource/properties from the underlying resources,</li>
+                  <li>2. modify existing properties/child resources of the underlying resources</li>
+                  <li>3. add new properties/child resources</li>
+                </ul>We can achieve the above using the following properties.
+                <ul>
+                  <li>1. <b>sling:hideProperties (String or String[])</b> — Specifies the property, or list of properties, to hide.The wildcard * hides all.</li>
+                  <li>2. <b>sling:hideResource (Boolean)</b> — Indicates whether the resources should be completely hidden, including its children.</li>
+                  <li>3. <b>sling:hideChildren (String or String[])</b> — Contains the child node, or list of child nodes, to hide. The properties of the node will be maintained. The wildcard * hides all.</li>
+                  <li>4. <b>sling:orderBefore (String)</b> — Contains the name of the sibling node that the current node should be positioned in front of.</li>
+                </ul>The goal of using Sling Resource Merger :-
+                <ul>
+                  <li>ensure that customization changes are not made in /libs.</li>
+                  <li>reduce the structure that is replicated from /libs. more</li>
+                </ul>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse23">23. We have mycomponent component and under mycomponent we have files mycomponent.jsp, mycomponent.html and mycomponent.html.html. Suppose we are including this component into a page, while file will be rendered?</a></h4>
+            </div>
+            <div id="collapse23" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>If we have mycomponent.jsp, mycomponent.html and mycomponent.html.html under mycomponent component. AEM will render mycomponent.html.html file.</p>
+                <p>If we have mycomponent.jsp and mycomponent.html under mycomponent component. AEM will render mycomponent.html file.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse24">24. How can we reuse a part of a dialog in another dialog?</a></h4>
+            </div>
+            <div id="collapse24" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>A specific widget with the label cqinclude exists which allows for inclusion of existing dialog elements in other dialog definitions. The generic JSON format is used on the client side to construct the actual dialog. Following is an example which uses the cqinclude widget to include an existing tab from an existing dialog:</p>
+                <div class="alert alert-success">
+                  {<br>
+                  "jcr:primaryType": "cq:Widget",<br>
+                  "xtype": "cqinclude",<br>
+                  "path": "/libs/replication/components/agent/tab_extended.infinity.json"<br>
+                  }
+                </div>
+                <p>The path property needs to point to a dialog-resource that is to be included in JSON format.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse25">25. Can you create a page without using template in AEM?</a></h4>
+            </div>
+            <div id="collapse25" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Yes, we can create a page without using template in AEM.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse26">26. You are working with two components: Component A and Component B. Component B has a slightly different behavior than component A. What is the best way to reuse the default script of component A in component B?</a></h4>
+            </div>
+            <div id="collapse26" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Set a property in component B called sling:resourceSuperType with the path to component A and omit the default script in component B</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse27">27. You want to create a custom widget. In which type of folder should you create the custom widget?</a></h4>
+            </div>
+            <div id="collapse27" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Create a folder under your project folder in /apps with the nodeType = cq:ClientLibraryFolder and set property sling:resourceType = widgets/clientlib</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse28">28. How can you configure a CQ component to allow an Author to edit content without opening a dialog?</a></h4>
+            </div>
+            <div id="collapse28" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Create and configure the /cq:editConfig/cq:inplaceEditing node under the component node.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse29">29. You want to add a new tab to the page properties dialog. What should you do?</a></h4>
+            </div>
+            <div id="collapse29" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Copy the page properties dialog from the foundation/page component, add a new tab node specifying the cq:Panel node to render the new tab.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse30">30. You have a page and want to create a child page. Which property has the highest priority to determine which templates can be used?</a></h4>
+            </div>
+            <div id="collapse30" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>cq:allowedTemplates</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse31">31. You have created two templates, tempA and tempB. In the property allowedChildren of tempA you include tempB. You create a pageA based on tempA and add a property cq:allowedTemplates with a list of templates, but excluding tempB. Can you select tempB to create a page as child of pageA?</a></h4>
+            </div>
+            <div id="collapse31" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>No, tempB needs to be added to the property cq:allowedTemplates of pageA to accomplish that.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse32">32. How do you get the current rendering mode within a CQ component script?</a></h4>
+            </div>
+            <div id="collapse32" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>WCMMode.fromRequest(request);</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse33">33. What is Scaffolding?</a></h4>
+            </div>
+            <div id="collapse33" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>With scaffolding we can create a form (a scaffold) with fields that reflect the structure we want for our pages and then use this form to easily create pages based on this structure.</p>
+                <p><strong>Note:</strong> More on <strong>Scaffolding</strong> watch this video</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="container-fluid text-center">
+      <p>Please send your queries or suggestions at aeminterviewquestions@gmail.com(Abhinash Kumar Singh)</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Event Handling</title>
+  <meta charset="utf-8">
+  <meta name="description" content="AEM Interview Questions">
+  <meta name="keywords" content="eventhandling AEM,eventhandling AEM interview questions,event handler AEM, event listener in AEM,ObservationManager in AEM,difference between Event handler and Event listener in AEM,Event handler vs Event listener in AEM">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1828962054294466",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="code/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">AEM Interview Questions</a> <a class="navbar-brand" href="#" id="heading">&gt; event handler and event listener</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li>EventHandling</li>
+          <li>
+            <a href="index.html">Aem Introduction</a>
+          </li>
+          <li>
+            <a href="osgi.html">OSGI</a>
+          </li>
+          <li>
+            <a href="sling.html">Sling</a>
+          </li>
+          <li>
+            <a href="repository.html">Repository</a>
+          </li>
+          <li>
+            <a href="component.html">Component & Template</a>
+          </li>
+          <li>
+            <a href="sightly.html">Sightly</a>
+          </li>
+          <li>
+            <a href="servlet.html">Servlet</a>
+          </li>
+          <li>
+            <a href="service.html">Service</a>
+          </li>
+          <li>
+            <a href="clientlibs.html">Client Library</a>
+          </li>
+          <li>
+            <a href="workflow.html">Workflow</a>
+          </li>
+          <li>
+            <a href="scheduler.html">Schedular</a>
+          </li>
+          <li>
+            <a href="multi-site_manager.html">Multisite Management</a>
+          </li>
+          <li>
+            <a href="dispatcher.html">Dispatcher</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+        <div class="scroll-sidebar">
+          <p>EventHandling</p>
+          <p><a href="index.html">Aem Introduction
+          <p></p>
+          <p></p></a><a href="osgi.html">OSGI</a></p>
+          <p><a href="sling.html">Sling</a></p>
+          <p><a href="repository.html">Repository</a></p>
+          <p><a href="component.html">Component & Template</a></p>
+          <p><a href="sightly.html">Sightly</a></p>
+          <p><a href="servlet.html">Servlet</a></p>
+          <p><a href="service.html">Service</a></p>
+          <p><a href="clientlibs.html">Client Library</a></p>
+          <p><a href="workflow.html">Workflow</a></p>
+          <p><a href="scheduler.html">Schedular</a></p>
+          <p><a href="multi-site_manager.html">Multisite Management</a></p>
+          <p><a href="dispatcher.html">Dispatcher</a></p>
+        </div>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>Event Handling</h1>
+        <p>Event handling can be done in different ways within CQ, that all have their cost, their impact, and their benefits.</p>
+        <ul>
+          <li><b>Event Listener</b> - At the JCR level with observation.</li>
+          <li><b>Event Handler</b> - At the Sling level with event handlers and jobs</li>
+          <li>At the AEM level with <b>work­flows & launchers.</b></li>
+          <li>Java classes implementing Runnable interface and scheduled using cron expressions.</li>
+        </ul>
+        <p>To view the current snapshot of events you should check the events logs at <b>http://host:port/system/console/events.</b></p>
+        <hr>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h2>Interview Questions</h2>
+        <p><strong>Note:</strong> For more on <strong>Event Handling</strong> watch this video <i class="fa fa-video-camera" style="font-size:28px;color:green"></i></p>
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">1. What is Event Handler?</a></h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>We can achieve event handling at sling level by implementing EventHandler interface in a class.</p>
+                <ul>
+                  <li>By writing a service class that implements EventHandler interface which must be registered with a service property EventConstants.EVENT_TOPIC (e.g. ReplicationAction.EVENT_TOPIC , PageEvent.EVENT_TOPIC) whose value is the list of topics</li>
+                  <li>implementing handleEvent(Event) method to trigger the job</li>
+                </ul>
+                <div class="alert alert-success">
+                  @Service(value = EventHandler.class)<br>
+                  @Component(immediate = true)<br>
+                  @Property(name = "event.topics", value = ReplicationAction.EVENT_TOPIC)<br>
+                  public class ReplicationLogger implements EventHandler, JobProcessor {<br>
+                  &ensp;private static final Logger LOGGER = LoggerFactory.getLogger(ReplicationLogger.class);<br>
+                  &ensp;@Reference<br>
+                  &ensp;private JcrResourceResolverFactory jcrResourceResolverFactory;<br>
+                  &ensp;@Override<br>
+                  &ensp;public void handleEvent(Event event) {<br>
+                  &ensp;&ensp;&ensp;LOGGER.info("********handling event");<br>
+                  &ensp;&ensp;&ensp;process (event);<br>
+                  &ensp;}<br>
+                  &ensp;@Override<br>
+                  &ensp;public boolean process(Event event) {<br>
+                  &ensp;&ensp;LOGGER.info("********processing job");<br>
+                  &ensp;&ensp;ReplicationAction action = ReplicationAction.fromEvent(event);<br>
+                  &ensp;&ensp;ResourceResolver resourceResolver = null;<br>
+                  &ensp;&ensp;if (action.getType().equals(ReplicationActionType.ACTIVATE)) {<br>
+                  &ensp; try {<br>
+                  &ensp;&ensp; resourceResolver = jcrResourceResolverFactory.getAdministrativeResourceResolver(null);<br>
+                  &ensp;&ensp;final PageManager pm = resourceResolver.adaptTo(PageManager.class);<br>
+                  &ensp;&ensp;final Page page = pm.getContainingPage(action.getPath());<br>
+                  &ensp;&ensp;if(page != null) {<br>
+                  &ensp;&ensp;&ensp;LOGGER.info("********activation of page {}", page.getTitle());<br>
+                  &ensp;&ensp;}<br>
+                  &ensp;}<br>
+                  &ensp;catch (LoginException e) {<br>
+                  &ensp;&ensp;&ensp;e.printStackTrace();<br>
+                  &ensp;&ensp;}<br>
+                  &ensp;finally {<br>
+                  &ensp;&ensp;if(resourceResolver != null && resourceResolver.isLive()) {<br>
+                  &ensp;&ensp;&ensp;resourceResolver.close();<br>
+                  &ensp;&ensp;}<br>
+                  &ensp;&ensp;}<br>
+                  &ensp;}<br>
+                  &ensp;&ensp;return true;<br>
+                  &ensp;}<br>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">2. You want to define a Event Handler. Which interface must your class implement?</a></h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                We need to implement org.osgi.service.event.<b>EventHandler</b> interface. more
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">3. You create an event handler. Which method or methods needs to be implemented when your class implements the EventHandler Interface?</a></h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                We need to override <b>handleEvent(Event)</b> method. It returns void. more
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4">4. What is Event Listener?</a></h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>We can achieve event handling at JCR level by implementing EventListener interface in a class. JCR Observer is the lowest-level event handling in CQ. As its name indicates it, is at JCR level and allows to listen to JCR-level events, gathered in sets (corresponding to persistence transactions). <b>javax.jcr.observation.Event</b> lists following types:</p>
+                <ul>
+                  <li>Event.NODE_ADDED</li>
+                  <li>Event.NODE_MOVED</li>
+                  <li>Event.NODE_REMOVED</li>
+                  <li>Event.PERSIST</li>
+                  <li>Event.PROPERTY_ADDED</li>
+                  <li>Event.PROPERTY_CHANGED</li>
+                  <li>Event.PROPERTY_REMOVED</li>
+                </ul>
+                <div class="alert alert-success">
+                  @Component<br>
+                  public class PropertyListener implements EventListener {<br>
+                  &ensp;private final Logger LOGGER = LoggerFactory.getLogger(TitlePropertyListener.class);<br>
+                  &ensp;@Reference<br>
+                  &ensp;private SlingRepository repository;<br>
+                  &ensp;private Session session;<br>
+                  &ensp;private ObservationManager observationManager;<br>
+                  &ensp;protected void activate(ComponentContext context) throws Exception {<br>
+                  &ensp;&ensp;session = repository.loginService(null, repository.getDefaultWorkspace());<br>
+                  &ensp;&ensp;observationManager = session.getWorkspace().getObservationManager();<br>
+                  &ensp;&ensp;observationManager.addEventListener(this, Event.PROPERTY_ADDED | Event.PROPERTY_CHANGED, "/", true, null, null, true);<br>
+                  &ensp;&ensp;LOGGER.info("********added JCR event listener");<br>
+                  &ensp;}<br>
+                  &ensp;protected void deactivate(ComponentContext componentContext) {<br>
+                  &ensp;&ensp;try {<br>
+                  &ensp;&ensp;&ensp;if (observationManager != null) {<br>
+                  &ensp;&ensp;&ensp;&ensp;observationManager.removeEventListener(this);<br>
+                  &ensp;&ensp;&ensp;&ensp;LOGGER.info("********removed JCR event listener");<br>
+                  &ensp;&ensp;&ensp;}<br>
+                  &ensp;&ensp;}<br>
+                  &ensp;&ensp;catch (RepositoryException re) {<br>
+                  &ensp;&ensp;&ensp;LOGGER.error("********error removing the JCR event listener", re);<br>
+                  &ensp;&ensp;}<br>
+                  &ensp;&ensp;finally {<br>
+                  &ensp;&ensp;&ensp;if (session != null) {<br>
+                  &ensp;&ensp;&ensp;&ensp;session.logout();<br>
+                  &ensp;&ensp;&ensp;&ensp;session = null;<br>
+                  &ensp;&ensp;&ensp;}<br>
+                  &ensp;&ensp;}<br>
+                  &ensp;}<br>
+                  &ensp;public void onEvent(EventIterator it) {<br>
+                  &ensp;&ensp;while (it.hasNext()) {<br>
+                  &ensp;&ensp;&ensp;Event event = it.nextEvent();<br>
+                  &ensp;&ensp;&ensp;try {<br>
+                  &ensp;&ensp;&ensp;&ensp;LOGGER.info("********new property event: {}", event.getPath());<br>
+                  &ensp;&ensp;&ensp;&ensp;Property changedProperty = session.getProperty(event.getPath());<br>
+                  &ensp;&ensp;&ensp;&ensp;if (changedProperty.getName().equalsIgnoreCase("jcr:title") && !changedProperty.getString().endsWith("!")) {<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;changedProperty.setValue(changedProperty.getString() + "!");<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;session.save();<br>
+                  &ensp;&ensp;&ensp;&ensp;}<br>
+                  &ensp;&ensp;&ensp;}<br>
+                  &ensp;&ensp;&ensp;catch (Exception e) {<br>
+                  &ensp;&ensp;&ensp;&ensp;LOGGER.error(e.getMessage(), e);<br>
+                  &ensp;&ensp;&ensp;}<br>
+                  &ensp;&ensp;}<br>
+                  &ensp;}<br>
+                  }<br>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5">5. You want to define a EventListener. Which interface must your class implement?</a></h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+              <div class="panel-body">
+                javax.jcr.observation.<b>EventListener</b> interface
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6">6. You create an event Listener. Which method or methods needs to be implemented when your class implements the EventListener Interface?</a></h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse">
+              <div class="panel-body">
+                We need to override <b>onEvent(EventIterator )</b> method. It returns void.
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse7">7. What is ObservationManager in AEM?</a></h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The ObservationManager object acquired via Workspace.getObservationManager(). Allows for the registration and deregistration of event listeners.Observation Manager Api is omni present in AEM. 200 thousand event it can handle in entire life time. It has methods like :-</p>
+                <ul>
+                  <li>
+                    <b>1. addEventListener(EventListener listener, int eventTypes, java.lang.String absPath, boolean isDeep, java.lang.String[] uuid, java.lang.String[] nodeTypeName, boolean noLocal)</b> - Adds an event listener that listens for the specified eventTypes (a combination of one or more event types encoded as a bit mask value).
+                    <ul>
+                      <li><b>listener</b> - an EventListener object.</li>
+                      <li><b>eventTypes</b> - A combination of one or more event type constants encoded as a bitmask.</li>
+                      <li><b>absPath</b> - an absolute path.</li>
+                      <li><b>uuid</b> - Only events whose associated node has one of the UUIDs in this list will be received. If his parameter is null then no UUID-related restriction is placed on events received.</li>
+                      <li><b>nodeTypeName</b> - Only events whose associated node has one of the node types (or a subtype of one of the node types) in this list will be received. If his parameter is null then no node type-related restriction is placed on events received.</li>
+                      <li><b>noLocal</b> - if noLocal is true, then events generated by the session through which the listener was registered are ignored. Otherwise, they are not ignored.</li>
+                    </ul>
+                  </li>
+                  <li><b>2. removeEventListener(EventListener listener)</b> - Deregisters an event listener.</li>
+                  <li><b>3. getRegisteredEventListeners()</b> - Returns all event listeners that have been registered through this session.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse8">8. What is difference between Event handler and Event listener?</a></h4>
+            </div>
+            <div id="collapse8" class="panel-collapse collapse">
+              <div class="panel-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Event handler</th>
+                      <th>Event listener</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>It is at the Sling level with event handlers and jobs</td>
+                      <td>It is at the JCR level with observation.</td>
+                    </tr>
+                    <tr>
+                      <td>org.osgi.service.event.<b>EventHandler</b> interface</td>
+                      <td>javax.jcr.observation.<b>EventListener</b> interface</td>
+                    </tr>
+                    <tr>
+                      <td>override <b>handleEvent(Event)</b> method.</td>
+                      <td>override <b>onEvent(EventIterator )</b> method</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse9">9. Which service property does an Event Subscriber need to subscribe to an Event Handler in the OSGi Event Admin service?</a></h4>
+            </div>
+            <div id="collapse9" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Event subscriber need to subscribe <b>event.topic</b> property to an Event Handler in the OSGi Event Admin service.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="container-fluid text-center">
+      <p>Please send your queries or suggestions at aeminterviewquestions@gmail.com(Abhinash Kumar Singh)</p>
+    </footer>
+  </div>
+</body>
+</html>

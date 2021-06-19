@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Multi Site Manager</title>
+  <meta charset="utf-8">
+  <meta name="description" content="AEM Interview Questions">
+  <meta name="keywords" content="multisite manager in AEM,multisite manager interview questions AEM,blue print in AEM,What is blue print,How to create a blue print,live copy in AEM,create a live copy in AEM,Rollout Configurations in AEM,custom Rollout Configurations in AEM, exclude node types and properties from synchonizations in AEM, language version in AEM, change language names in AEM, change default countries name in AEM">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1828962054294466",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="code/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">AEM Interview Questions</a> <a class="navbar-brand" href="#" id="heading">&gt; multi site manager</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li>Multisite Management</li>
+          <li>
+            <a href="index.html">Aem Introduction</a>
+          </li>
+          <li>
+            <a href="osgi.html">OSGI</a>
+          </li>
+          <li>
+            <a href="sling.html">Sling</a>
+          </li>
+          <li>
+            <a href="repository.html">Repository</a>
+          </li>
+          <li>
+            <a href="component.html">Component & Template</a>
+          </li>
+          <li>
+            <a href="sightly.html">Sightly</a>
+          </li>
+          <li>
+            <a href="servlet.html">Servlet</a>
+          </li>
+          <li>
+            <a href="service.html">Service</a>
+          </li>
+          <li>
+            <a href="clientlibs.html">Client Library</a>
+          </li>
+          <li>
+            <a href="workflow.html">Workflow</a>
+          </li>
+          <li>
+            <a href="scheduler.html">Schedular</a>
+          </li>
+          <li>
+            <a href="eventhandling.html">EventHandling</a>
+          </li>
+          <li>
+            <a href="dispatcher.html">Dispatcher</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+        <div class="scroll-sidebar">
+          <p>Multisite Management</p>
+          <p><a href="index.html">Aem Introduction
+          <p></p>
+          <p></p></a><a href="osgi.html">OSGI</a></p>
+          <p><a href="sling.html">Sling</a></p>
+          <p><a href="repository.html">Repository</a></p>
+          <p><a href="component.html">Component & Template</a></p>
+          <p><a href="sightly.html">Sightly</a></p>
+          <p><a href="servlet.html">Servlet</a></p>
+          <p><a href="service.html">Service</a></p>
+          <p><a href="clientlibs.html">Client Library</a></p>
+          <p><a href="workflow.html">Workflow</a></p>
+          <p><a href="scheduler.html">Schedular</a></p>
+          <p><a href="eventhandling.html">EventHandling</a></p>
+          <p><a href="dispatcher.html">Dispatcher</a></p>
+        </div>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>Multi Site Manager</h1>
+        <p>Multi Site Manager (MSM) enables us to easily manage multiple web sites that share common content. MSM lets you define relations between the sites so that content changes in one site are automatically replicated in other sites.</p>
+        <p>MSM reduces the time it takes to manage us websites and increases the re-use of common content:</p>
+        <ul>
+          <li>Efficiently manage different language versions of a website.</li>
+          <li>Automatically update one or more sites based on a source site:
+            <ul>
+              <li>Enforce a common base structure and use common content across multiple sites.</li>
+              <li>Maximize the use of available resources.</li>
+              <li>Focus efforts on managing the content that differs between the sites.</li>
+              <li>Maintain a common look and feel.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h2>Interview Questions</h2>
+        <p><strong>Note:</strong> For more on <strong>Multi Site Manager</strong> check this video <i class="fa fa-video-camera" style="font-size:28px;color:green"></i></p>
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">1. What is blue print? How to create a blue print?</a></h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Blueprints target the rollout of complete multilingual website projects and are a tool to control multiple rollout configs and live copies. Blueprints allow you to control multiple live copies and centrally consistent rollout configs for the blueprint's live copies. A blueprint rollout will push modifications to all it's live copies.The default Blueprint Template assumes that the source web site has the following characteristics:</p>
+                <ul>
+                  <li>The web site has a root page.</li>
+                  <li>The immediate child pages of the root are language branches of the web site. The Name of each page is a language code. When creating a Live Copy, the languages are presented as optional content to include in the copy.</li>
+                  <li>Each language page contains one or more child pages. When creating a Live Copy, child pages are presented as a chapter that you can include in the copy.</li>
+                </ul><b>To create a blueprint:</b>
+                <ul>
+                  <li>1. Open the Tools console.</li>
+                  <li>2. Select Tools, then MSM Control Center. Click New... in the top-middle toolbar.</li>
+                  <li>3. In the Create Page dialog, define the blueprint:
+                    <ul>
+                      <li><b>Title</b>, the page title,</li>
+                      <li><b>Name</b>, the page (node) name</li>
+                      <li>Select the Blueprint Template</li>
+                    </ul>click <b>create</b>
+                  </li>
+                  <li>4. Open the newly created page and click the <b>Edit</b> button beside <b>Settings</b>.</li>
+                  <li>5. In the Blueprint Settings dialog, define the blueprint:
+                    <ul>
+                      <li><b>Name</b>, the blueprint name that was defined earlier can be changed.</li>
+                      <li><b>Description</b>, e.g. This is my blueprint</li>
+                      <li><b>Source Path:</b> set the path of the blueprint, e.g. /content/geometrixx</li>
+                      <li><b>Thumbnail Image</b> (optional): this thumbnail will appear in the live copy creation.</li>
+                    </ul>
+                  </li>
+                </ul>To create a <b>blueprint</b> Watch this video
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">2.What is live copy? How to create a live copy?</a></h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Live Copy is the creation of a new site based on the content and structure of an existing site. Changes or additions to the main site can then cascade down throughout Live Copies. When used to its full potential, this is a very powerful tool that can simplify management across a large number of sites with little effort.</p>
+                <p>Create a Live Copy of any page and its child pages, or of a single page. When you create the Live Copy, you can optionally specify the rollout configurations to use for automatically updating the content:</p>
+                <ul>
+                  <li>The selected rollout configurations apply to all of the Live Copy pages that are created for the source page and its child pages.</li>
+                  <li>If you specify no rollout configurations, either the system default rollout configuration is used, or the default rollout configuration for the branch is used.</li>
+                </ul>
+                <p>The following procedure creates a <b>Live Copy</b> using the classic UI.</p>
+                <ul>
+                  <li>1. Open the Websites console.</li>
+                  <li>2. Select the folder or page below which you want to locate the Live Copy pages.</li>
+                  <li>3. Click New &gt; New Live Copy.</li>
+                  <li>4. In the Source selection tab, define the Live Copy:
+                    <ul>
+                      <li><b>Title</b>: The title of the root Live Copy page</li>
+                      <li><b>Name</b>: The name of the page node</li>
+                      <li><b>Live Copy From</b>: Browse to select the page to use as the source of the Live Copy</li>
+                      <li><b>Exclude sub pages</b>: Select this option to exclude the child pages from the Live Copy.</li>
+                    </ul>
+                  </li>
+                  <li>5. On the Sync config tab, specify one or more Rollout Configs to use for the Live Copy</li>
+                  <li>6. Click <b>Create</b>.</li>
+                </ul>To create a <b>livecopy</b> - Watch this video
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">3. What is Rollout Configurations? How to create custom Rollout Configurations?</a></h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                If we run Live Copy straight out of the box, we get an exact duplicate of our original site. That can be good, but probably doesn’t fulfill a project’s requirements. Chances are we’d need to change the template and resource types of our Live Copy pages. These changes can be made using rollout configurations in Live Copy. With a rollout configuration, CQ can automatically create a new mobile page anytime we create a new page in our main site, taking the exact content from the new main page while still using the mobile site’s designs. We could always do this manually, but configuring our Live Copy rollouts will automate the process—and it really isn’t too difficult. <b>Rollout configurations</b> can be found by navigating to <b>/etc/msm/rolloutconfigs</b>.
+                <p>There are some rollout configurations are installed by default in AEM . e.g Standard rollout config, Activate on Blueprint activation, Deactivate on Blueprint deactivation, Push on modify more</p>
+                <p>We need to create a rollout configuration when the installed rollout configurations do not meet your application requirements.<br>
+                Create the rollout configuration, then add the trigger and synchronazion actions. The new rollout configuration is available when setting rollout configurations on a blueprint or on a Live Copy page</p>
+                <p><b>CREATE ROLLOUT CONFIGURATIONS</b></p>
+                <ul>
+                  <li>1. Go to the Tools console</li>
+                  <li>2. In the folder tree, select the Tools/MSM/Rollout Configurations folder.</li>
+                  <li>3. Click New &gt; New Page and provide values for the Rollout Configuration properties:<br>
+                    <ul>
+                      <li><b>Title</b>: The title of the Rollout Configuration, such as My Rollout Configuration</li>
+                      <li><b>Name</b>: The name of the node that stores the property values, such as myrolloutconfig</li>
+                      <li>Select <b>RolloutConfig Template</b>.</li>
+                    </ul>
+                  </li>
+                  <li>4. Click <b>Create</b>.</li>
+                  <li>5. Open the rollout configuration that you created.</li>
+                  <li>6. Click <b>Edit</b>.</li>
+                  <li>7. In the Rollout Config dialog, use the Sync Trigger drop-down menu to select the action that causes the rollout to occur.</li>
+                  <li>8. Click <b>OK</b> to save the changes.</li>
+                </ul>
+                <p><b>PROCEDURE TO ADD SYNCHRONIZATION ACTIONS TO THE ROLLOUT CONFIGURATIONS</b></p>
+                <ul>
+                  <li>1. Open CRXDE Lite.</li>
+                  <li>2. Select the jcr:content node below your rollout configuration node. For example, for the rollout configuration with the Name property of myrolloutconfig, select the /etc/msm/rolloutconfigs/myrolloutconfig/jcr:content node.</li>
+                  <li>3. Click Create &gt; Create Node, configure the following node properties and click OK:
+                    <ul>
+                      <li><b>Name</b>: The node name of the synchronization action. The name must be the same as teh Action Name in the table Synchronisation Actions, for example contentCopy, or workflow</li>
+                      <li><b>Type</b>: cq:LiveSyncAction</li>
+                    </ul>
+                  </li>
+                  <li>4. Select the action node that you created and add the following property to the node:
+                    <ul>
+                      <li><b>Name</b>: The property name of the action. The name must be the same as the Property Name in the table Synchronisation Actions, for example enabled</li>
+                      <li><b>Type</b>: String</li>
+                      <li><b>Value</b>, the property value of the action. For valid values, see the Property Value column in Synchronisation Actions, for example true.</li>
+                    </ul>
+                  </li>
+                  <li>5. Add and configure as many syncronization action nodes as you require. Rearrange the action nodes so that their order matches the order in which you want them to occur. The topmost action node occurs first.</li>
+                  <li>6. Click Save All.</li>
+                </ul>To create a <b>ROLLOUT CONFIGURATIONS</b> Watch this video
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4">4. How to exclude node types and properties from synchonizations?</a></h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+              <div class="panel-body">
+                We can exclude node types and properties from synchonizations. These nodes and properties can be defined by node type and/or explicit name and are configured in the System Console (http:///system/console/configMgr) in the following sections:
+                <ul>
+                  <li><b>CQ MSM Content Copy Action</b></li>
+                  <li><b>CQ MSM Content Delete Action</b></li>
+                  <li><b>CQ MSM Content Update Action</b></li>
+                </ul>EXAMPLE : - CQ MSM Content Copy Action<br>
+                <br>
+                <img src="pics/cq-msm-content-copy-actions.PNG" alt="Mountain View" style="width:800px;height:315px;">
+                <ul>
+                  <li><b>Excluded Nodetypes</b> - The list of regex matching node types to be excluded.</li>
+                  <li><b>Excluded Paragraph Items</b> - The list of regex matching paragraph items to be excluded</li>
+                  <li><b>Excluded Page Properties</b> - The list of regex matching page properties to be excluded</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5">5. Why we need multi site manager?</a></h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Multi Site Manager (MSM) allows us to create copy of existing site and automatically update the copy when changes are done to the source site. Multi Site Manager (MSM) enables us to easily manage multiple web sites that share common content. We should use MSM when our website is :</p>
+                <ul>
+                  <li>Multinational Site - Sites are in multiple countries</li>
+                  <li>Multilingual Site - Sites are in multiple languages.</li>
+                  <li>Multinational Multilingual Site - Sites are in multiple countries and in multiple languages</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6">6. How to add a language version (using language copy tools) of a website?</a></h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>To use MSM for managing language versions of a website, our website must use the following structure:</p>
+                <ul>
+                  <li>The web site has a single page as the root.</li>
+                  <li>Each child page is the root page of each language version.</li>
+                  <li>The name of the child page is the language code.</li>
+                </ul>
+                <p></p>
+                <h5>Procedure to add a language version of a web site using the Language Copy tool</h5>
+                <p></p>
+                <ul>
+                  <li>1. Go to website console.(http://host:port/siteadmin#)</li>
+                  <li>2. Select the root page of the site. (eg. Geometrixx Media)</li>
+                  <li>3. Add a new child page that represetns the language version of the site:
+                    <ul>
+                      <li>a. Click New &gt; New Page.</li>
+                      <li>b. In the dialog, specify the Title and the Name.<br>
+                        Name should be in the format of or _. example en, fr, en_US.
+                        <ul>
+                          <li>The supported language code is lower-case, two-letter code as defined by ISO-639-1</li>
+                          <li>The supported country code is lower-case or upper-case, two-letter code as defined by ISO 3166</li>
+                        </ul>
+                      </li>
+                      <li>Select the Template and click Create<br>
+                      <img src="pics/msm_language_copy.PNG" alt="Mountain View" style="width:521px;height:290px;"></li>
+                    </ul>
+                  </li>
+                  <li>4. Again select the root page of the site.</li>
+                  <li>5. In the tool menu, select language copy.<br>
+                  <img src="pics/msm_toolmenu.PNG" alt="Mountain View" style="width:142px;height:175px;"></li>
+                  <li>6. The Language Copy dialog displays a matrix of available language versions and web pages. An x in a language column means that the page is available in that language.<br>
+                  <img src="pics/msm_language_copy_tools.PNG" alt="Mountain View" style="width:708px;height:508px;"></li>
+                  <li>7. To copy an existing page or page tree to a language version, select the cell for that page in the language column. Click the arrow and select the type of copy to create.
+                    <ul>
+                      <li>auto - Uses the behavior from parent pages</li>
+                      <li>ignore - Does not create a copy of this page and its children</li>
+                      <li>&lt; language&gt;+ (e.g. English+) - Copies the page and all its children from that language</li>
+                      <li>&lt; language&gt; (e.g. English) - Copies only the page from that language</li>
+                    </ul><img src="pics/msm_language_copy_value.PNG" alt="msm_language_copy_value" style="width:708px;height:508px;"><br>
+                    There is a check box option at the bottom of the dialog:<br>
+                    Create non-empty missing ancestors - The missing ancestors of the selected pages will be created as empty pages if this is left unchecked.
+                  </li>
+                  <li>8. Click OK to close the dialog.</li>
+                  <li>9. In the next dialog, click Yes to confirm the copy.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse7">7. How to change language names and default countries?</a></h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Procedure to modify the languages</p>
+                <ul>
+                  <li>1. Open <b>CRXDE Lite</b> (http://host:port/crx/de/index.jsp)</li>
+                  <li>2. Select the <b>/apps</b> folder and click Create &gt; Create Folder. Name the folder wcm.</li>
+                  <li>3. Repeat the previous step to create the <b>/apps/wcm/core</b> folder tree. Create a node of type sling:Folder in core called resources.</li>
+                  <li>4. Right-click the <b>/libs/wcm/core/resources/languages</b> node and click <b>Copy</b>. Right-click the <b>/apps/wcm/core/resources</b> folder and click <b>Paste</b>.</li>
+                  <li>5. Each child node of languages node represents a language or a language-country:<br>
+                    <ul>
+                      <li>The name of the node is the languge code (such as en or hi), or the language_country code (such as en_us or de_ch).</li>
+                      <li>The language property of the node stores the full name of the language for the code.</li>
+                      <li>The country property of the node stores the full name of the country for the code.</li>
+                      <li>When the node name consists only of a language code (such as en), the country property is *, and an additional defaultCountry property stores the code of the language-country to indicate the country to use.</li>
+                    </ul><br>
+                    <img src="pics/msm_languges_name.PNG" alt="msm_languges_name" style="width:715px;height:430px;">
+                  </li>
+                  <li>Modify the child nodes as required.</li>
+                  <li>Click Save All.</li>
+                  <li>Go to OSGI console. Click configuration</li>
+                  <li>Open the CQ WCM Language Manager.(http://host:port/system/console/configMgr/com.day.cq.wcm.core.impl.LanguageManagerImpl)</li>
+                  <li>Locate and click Day CQ WCM Language Manager, and change the value of Language List to /apps/wcm/core/resources/languages, then click Save. <img src="pics/msm_language_manager.PNG" alt=" msm_language_manager.PNG" style="width:666px;height:276px;"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="container-fluid text-center">
+      <p>Please send your queries or suggestions at aeminterviewquestions@gmail.com(Abhinash Kumar Singh)</p>
+    </footer>
+  </div>
+</body>
+</html>

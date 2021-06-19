@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HTML Template Language(Sightly)</title>
+  <meta charset="utf-8">
+  <meta name="description" content="AEM Interview Questions">
+  <meta name="keywords" content="sightly in AEM, advantages of sightly Language,Use-API in sightly,call service in Java Use-API class,call service in handler class, unwrap in attribute sightly, element attribute in sightly,implicit object present in sightly,Difference between Sightly and JSP,Sightly vs JSP">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1828962054294466",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="code/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">AEM Interview Questions</a> <a class="navbar-brand" href="#" id="heading">&gt; sightly</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li>Sightly</li>
+          <li>
+            <a href="index.html">Aem Introduction</a>
+          </li>
+          <li>
+            <a href="osgi.html">OSGI</a>
+          </li>
+          <li>
+            <a href="sling.html">Sling</a>
+          </li>
+          <li>
+            <a href="repository.html">Repository</a>
+          </li>
+          <li>
+            <a href="component.html">Component & Template</a>
+          </li>
+          <li>
+            <a href="servlet.html">Servlet</a>
+          </li>
+          <li>
+            <a href="service.html">Service</a>
+          </li>
+          <li>
+            <a href="clientlibs.html">Client Library</a>
+          </li>
+          <li>
+            <a href="workflow.html">Workflow</a>
+          </li>
+          <li>
+            <a href="scheduler.html">Schedular</a>
+          </li>
+          <li>
+            <a href="eventhandling.html">EventHandling</a>
+          </li>
+          <li>
+            <a href="multi-site_manager.html">Multisite Management</a>
+          </li>
+          <li>
+            <a href="dispatcher.html">Dispatcher</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+        <div class="scroll-sidebar">
+          <p>Sightly</p>
+          <p><a href="index.html">Aem Introduction
+          <p></p>
+          <p></p></a><a href="osgi.html">OSGI</a></p>
+          <p><a href="sling.html">Sling</a></p>
+          <p><a href="repository.html">Repository</a></p>
+          <p><a href="component.html">Component & Template</a></p>
+          <p><a href="servlet.html">Servlet</a></p>
+          <p><a href="service.html">Service</a></p>
+          <p><a href="clientlibs.html">Client Library</a></p>
+          <p><a href="workflow.html">Workflow</a></p>
+          <p><a href="scheduler.html">Schedular</a></p>
+          <p><a href="eventhandling.html">EventHandling</a></p>
+          <p><a href="multi-site_manager.html">Multisite Management</a></p>
+          <p><a href="dispatcher.html">Dispatcher</a></p>
+        </div>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>HTML Template Language(Sightly)</h1>
+        <p>The purpose of HTML Template Language (HTL), supported by Adobe Experience Manager (AEM), is to offer a highly productive enterprise-level web framework that increases security, and allows HTML developers without Java knowledge to better participate in AEM projects.</p>
+        <p>The HTML Template Language has been introduced with AEM 6.0, and takes the place of JSP (JavaServer Pages) as the preferred and recommended server-side template system for HTML. For web developers who need to build robust enterprise websites, the HTML Template Language helps to achieve increased security and development efficiency.</p>
+        <hr>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h2>Interview Questions</h2>
+        <p><strong>Note:</strong> For more on <strong>sightly</strong> watch this video <i class="fa fa-video-camera" style="font-size:28px;color:green"></i></p>
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">1. What is advantages of sightly/HTML Template Language?</a></h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The HTML Template Language has been introduced with AEM 6.0, and takes the place of JSP (JavaServer Pages) as the preferred and recommended server-side template system for HTML. Folowing are the benefits of HTML Template Language</p>
+                <ul>
+                  <li>
+                    <p><strong>Increased Security</strong> - The HTML Template Language increases the security of sites that use it in their implementation, as compared to JSP and to most other template systems, because HTL is capable of automatically applying the proper context-aware escaping to all variables being output to the presentation layer. HTL makes this possible because it understands the HTML syntax, and uses that knowledge to adjust the required escaping for expressions, based on their position in the markup. This will for instance result in expressions placed in href or src attributes to be escaped differently from expressions placed in other attributes, or elsewhere.</p>
+                    <p>While the same result can be achieved with template languages like JSP, there the developer must manually ensure that the proper escaping is applied to each variable. As a single omission or mistake on the applied escaping is potentially sufficient to cause a cross-site scripting (XSS) vulnerability, we decided to automate this task with HTL.</p>
+                  </li>
+                  <li><strong>Simplified Development</strong> - The HTML Template Language is easy to learn and its features are purposely limited to ensure that it stays simple and straight-forward.</li>
+                  <li><strong>Reduced Costs</strong> - Increased security, simplified development and improved team collaboration, translates for AEM projects in reduced effort, faster time to market (TTM), and lower total cost of ownership (TCO).</li>
+                </ul>Read more
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">2. What are the Use-API in sightly?</a></h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p><strong>Java Use-API</strong> - The HTML Template Language (HTL) Java Use-API enables a HTL file to access helper methods in a custom Java class. This allows all complex business logic to be encapsulated in the Java code, while the HTL code deals only with direct markup production. Read more</p>
+                <p><strong>JavaScript Use-API</strong> - The HTML Template Langugae (HTL) JavaScript Use-API enables a HTL file to access helper code written in JavaScript. This allows all complex business logic to be encapsulated in the JavaScript code, while the HTL code deals only with direct markup production. Read more</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">3. How to call service in Java Use-API class?</a></h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                Use SlingScriptHelper.getService() method (into Java Use-API class)<br>
+                SampleService service=getSlingScriptHandler().getService(SampleService.class);
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4">4. What is the use of unwrap, element and attribute attribute in sightly?</a></h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul>
+                  <li><strong>Attribute attribute</strong> - Use an array to make things easy. Example<br>
+                  &ensp; &ensp; &ensp;attrMap = {<br>
+                  &ensp; &ensp; &ensp;title: "myTitle",<br>
+                  &ensp; &ensp; &ensp;class: "myClass",<br>
+                  &ensp; &ensp; &ensp;id: "myId"<br>
+                  &ensp; &ensp; &ensp;}<br>
+                  &ensp; &ensp; &ensp; &ltdiv data-sly-attribute="${attrMap}"&gt;&lt;/div&gt; &ensp; &ensp; &ensp; &ltdiv title="myTitle" class="myClass" id="myId"&gt;&lt;/div&gt;</li>
+                  <li><strong>Element attribute</strong> - Replaces the element of the host element</li>
+                  <li><strong>Unwrap attribute</strong> - Remove the outer elements (i.e. HTML Tags) leaving just the output of the Expression)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5">5. What are the implicit object present in sightly?</a></h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Without having to specify anything, HTL provides access to all objects that were commonly available in JSP after including global.jsp. These objects are in addition to any that may be introduced through the Use-API.</p>
+                <h4>Enumerable Objects :</h4>
+                <p>These objects provide convenient access to commonly used information. Their content can be accessed with the dot notation, and they can be iterated-through using data-sly-list or data-sly-repeat.</p>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Variable Name</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>properties</td>
+                      <td>
+                        List of properties of the current Resource.<br>
+                        Backed by org.apache.sling.api.resource.ValueMap
+                        <p></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>pageProperties</td>
+                      <td>List of page properties of the current Page.<br>
+                      Backed by org.apache.sling.api.resource.ValueMap</td>
+                    </tr>
+                    <tr>
+                      <td>inheritedPageProperties</td>
+                      <td>List of inherited page properties of the current Page.<br>
+                      Backed by org.apache.sling.api.resource.ValueMap</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h4>Java-backed Objects :</h4>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Variable Name</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>component</td>
+                      <td>com.day.cq.wcm.api.components.Component</td>
+                    </tr>
+                    <tr>
+                      <td>currentDesign</td>
+                      <td>com.day.cq.wcm.api.designer.Design</td>
+                    </tr>
+                    <tr>
+                      <td>currentPage</td>
+                      <td>com.day.cq.wcm.api.Page</td>
+                    </tr>
+                    <tr>
+                      <td>request</td>
+                      <td>org.apache.sling.api.SlingHttpServletRequest</td>
+                    </tr>
+                    <tr>
+                      <td>resource</td>
+                      <td>org.apache.sling.api.resource.Resource</td>
+                    </tr>
+                    <tr>
+                      <td>resourceDesign</td>
+                      <td>com.day.cq.wcm.api.designer.Design</td>
+                    </tr>
+                    <tr>
+                      <td>resourcePage</td>
+                      <td>com.day.cq.wcm.api.Page</td>
+                    </tr>
+                    <tr>
+                      <td>wcmmode</td>
+                      <td>com.adobe.cq.sightly.SightlyWCMMode</td>
+                    </tr>
+                  </tbody>
+                </table>Read More
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse7">7. Difference between Sightly and JSP</a></h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Sightly Offers below advantages over JSP for better development in AEM</p>
+                <ul>
+                  <li>Protection against cross-side scripting injection.</li>
+                  <li>Easily development of AEM Projects by front-end developers.</li>
+                  <li>Flexible and powerful templating and logic binding features</li>
+                  <li>Need to write less code in Sightly thus productivity increases.</li>
+                  <li>Wider range of implicit objects as compared to JSP.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="container-fluid text-center">
+      <p>Please send your queries or suggestions at aeminterviewquestions@gmail.com(Abhinash Kumar Singh)</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sling</title>
+  <meta charset="utf-8">
+  <meta name="description" content="AEM Interview Questions">
+  <meta name="keywords" content="sling,sling interview questions, sling in AEM,REST principle,Difference between REST and SOAP,REST vs SOAP,sling resolution,sling model,sling is content centric,restful sling,sling APIs">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1828962054294466",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="code/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">AEM Interview Questions</a> <a class="navbar-brand" href="#" id="heading">&gt; sling</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li>Sling</li>
+          <li>
+            <a href="index.html">Aem Introduction</a>
+          </li>
+          <li>
+            <a href="osgi.html">OSGI</a>
+          </li>
+          <li>
+            <a href="repository.html">Repository</a>
+          </li>
+          <li>
+            <a href="component.html">Component & Template</a>
+          </li>
+          <li>
+            <a href="sightly.html">Sightly</a>
+          </li>
+          <li>
+            <a href="servlet.html">Servlet</a>
+          </li>
+          <li>
+            <a href="service.html">Service</a>
+          </li>
+          <li>
+            <a href="clientlibs.html">Client Library</a>
+          </li>
+          <li>
+            <a href="workflow.html">Workflow</a>
+          </li>
+          <li>
+            <a href="scheduler.html">Schedular</a>
+          </li>
+          <li>
+            <a href="eventhandling.html">EventHandling</a>
+          </li>
+          <li>
+            <a href="multi-site_manager.html">Multisite Management</a>
+          </li>
+          <li>
+            <a href="dispatcher.html">Dispatcher</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+        <div class="scroll-sidebar">
+          <p>Sling</p>
+          <p><a href="index.html">Aem Introduction
+          <p></p>
+          <p></p></a><a href="osgi.html">OSGI</a></p>
+          <p><a href="repository.html">Repository</a></p>
+          <p><a href="component.html">Component & Template</a></p>
+          <p><a href="sightly.html">Sightly</a></p>
+          <p><a href="servlet.html">Servlet</a></p>
+          <p><a href="service.html">Service</a></p>
+          <p><a href="clientlibs.html">Client Library</a></p>
+          <p><a href="workflow.html">Workflow</a></p>
+          <p><a href="scheduler.html">Schedular</a></p>
+          <p><a href="eventhandling.html">EventHandling</a></p>
+          <p><a href="multi-site_manager.html">Multisite Management</a></p>
+          <p><a href="dispatcher.html">Dispatcher</a></p>
+        </div>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>Sling</h1>
+        <p>AEM is built using Sling, a Web application framework based on REST principles that provides easy development of content-oriented applications. Sling uses a JCR repository, such as Apache Jackrabbit, or in the case of AEM, the CRX Content Repository, as its data store.</p>
+        <h5>Apache Sling in five bullets points.</h5>
+        <ul>
+          <li>REST based web framework.</li>
+          <li>Content-driven, using a JCR content repository.</li>
+          <li>Powered by OSGi</li>
+          <li>Scripting inside, multiple languages (JSP, server-side javascript, Scala, etc.)</li>
+          <li>Apache Open Source project</li>
+        </ul><br>
+        <p>For more information click here</p>
+        <hr>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h2>Interview Questions</h2>
+        <p><strong>Note:</strong> To build an application using <strong>Apache Sling</strong> watch this video <i class="fa fa-video-camera" style="font-size:28px;color:green"></i></p>
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">1. What is REST principle?</a></h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>REST (Representational State Transfer) architectural style describes six constraints applied to architecture:</p>
+                <ul>
+                  <li>Uniform Interface – Individual resources are identified using URLS. The resources (database) are themselves different from the representation (XML, JSON, HTML) sent to the client. The client can manipulate the resource through the representations provided they have the permissions. Each message sent between the client and the server is self-descriptive and includes enough information to describe how it is to be processed. The hypermedia that is hyperlinks and hypertext act as the engine for state transfer.</li>
+                  <li>Stateless Interactions – none of the clients context is to be stored on the server side between the request. All of the information necessary to service the request is contained in the URL, query parameters, body or headers.</li>
+                  <li>Cacheable – Clients can cache the responses. The responses must define themselves as cacheable or not to prevent the client from sending the inappropriate data in response to further requests.</li>
+                  <li>Client-Server – The clients and the server are separated from each other thus the client is not concerned with the data storage thus the portability of the client code is improved while on the server side the server is not concerned with the client interference thus the server is simpler and easy to scale..</li>
+                  <li>Layered System – At any time client cannot tell if it is connected to the end server or to an intermediate. The intermediate layer helps to enforce the security policies and improve the system scalability by enabling load-balancing.</li>
+                  <li>Code on Demand – an optional constraint where the server temporarily extends the functionality of a client by the transfer of executable code.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse11">2. Difference between REST and SOAP.</a></h4>
+            </div>
+            <div id="collapse11" class="panel-collapse collapse">
+              <div class="panel-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>SOAP</th>
+                      <th>REST</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>SOAP is a protocol</td>
+                      <td>REST is an architectural style</td>
+                    </tr>
+                    <tr>
+                      <td>SOAP stands for Simple Object Access Protocol.</td>
+                      <td>REST stands for Representational State Transfer.</td>
+                    </tr>
+                    <tr>
+                      <td>SOAP uses services interfaces to expose the business logic.</td>
+                      <td>REST uses URI to expose business logic.</td>
+                    </tr>
+                    <tr>
+                      <td>SOAP defines its own security.</td>
+                      <td>RESTful web services inherits security measures from the underlying transport.</td>
+                    </tr>
+                    <tr>
+                      <td>SOAP permits XML data format only.</td>
+                      <td>REST permits different data format such as Plain text, HTML, XML, JSON etc.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse10">3. What is sling resolution?</a></h4>
+            </div>
+            <div id="collapse10" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>The following diagram explains Sling script resolution: it shows how to get from HTTP request to content node, from content node to resource type, from resource type to script and what scripting variables are available.</p><img src="pics/sling-resolutin.PNG" alt="sling-resolutin" style="width:704px;height:504px;">
+                <p>For more information watch this video</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">4. What is sling model?</a></h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>A Sling Model is implemented as an OSGi bundle. A Java class located in the OSGi bundle is annotated with @Model and the adaptable class (for example, @Model(adaptables = Resource.class). The data members (Fields) use @Inject annotations. These data members map to node properties.</p>Example of sling model :<br>
+                <div class="alert alert-success">
+                  package org.abhi.poc.sling.models;<br>
+                  &ensp; import javax.inject.Inject;<br>
+                  &ensp;import org.apache.sling.api.resource.Resource;<br>
+                  &ensp;import org.apache.sling.models.annotations.Model;<br>
+                  &ensp;@Model(adaptables = Resource.class)<br>
+                  &ensp; &ensp;public class UserInfo {<br>
+                  &ensp;&ensp;&ensp;@Inject<br>
+                  &ensp;&ensp; private String firstName;<br>
+                  &ensp;&ensp;@Inject<br>
+                  &ensp;&ensp;&ensp; private String lastName;<br>
+                  &ensp;&ensp;@Inject<br>
+                  &ensp;&ensp;private String technology;<br>
+                  &ensp;&ensp;public String getFirstName() {<br>
+                  &ensp;&ensp;&ensp; return firstName;<br>
+                  &ensp;&ensp;}<br>
+                  public String getLastName() {<br>
+                  return lastName;<br>
+                  }<br>
+                  public String getTechnology() {<br>
+                  return technology;<br>
+                  }<br>
+                  }<br>
+                </div>
+                <p>For more information https://sling.apache.org/documentation/bundles/models.html</p>
+                <p>For more information https://helpx.adobe.com/experience-manager/using/sling_models.html</p>
+                <p>For more information watch this video</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">5. How to customize pages shown by the error handler?</a></h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>https://docs.adobe.com/docs/en/cq/5-6-1/developing/customizing_error_handler_pages.html</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4">6. What is resource mapping?</a></h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>https://docs.adobe.com/docs/en/cq/5-6-1/deploying/resource_mapping.html</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5">7. Is sling is content centric. Explain</a></h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Sling is content-centric. This means that processing is focused on the content as each (HTTP) request is mapped onto content in the form of a JCR resource (a repository node):</p>
+                <ul>
+                  <li>the first target is the resource (JCR node) holding the content</li>
+                  <li>secondly, the representation, or script, is located from the resource properties in combination with certain parts of the request (e.g. selectors and/or the extension)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6">8. Explain restful sling.</a></h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Due to the content-centric philosophy, Sling implements a REST-oriented server and thus features a new concept in web application frameworks. The advantages are:</p>
+                <ul>
+                  <li>very RESTful, not just on the surface; resources and representations are correctly modelled inside the server</li>
+                  <li>removes one or more data models
+                    <ul>
+                      <li>previously the following were needed: URL structure, business objects, DB schema;</li>
+                      <li>his is now reduced to: URL = resource = JCR structure</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse7">9. What are the sling APIs you have used?</a></h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>These are the api and classes frequently used in AEM</p>
+                <ul>
+                  <li>ValueMap - The ValueMap is an easy way to access properties of a resource.</li>
+                  <li>ResourceResolver - The ResourceResolver defines the service API which may be used to resolve Resource objects.</li>
+                  <li>ResourceProvider - API for providers of resources.</li>
+                  <li>Resource - Resources are pieces of content on which Sling acts The Resource is also an Adaptable to get adapters to other types.</li>
+                  <li>ResourceWrapper - The ResourceWrapper is a wrapper for any Resource delegating all method calls to the wrapped resource by default.</li>
+                  <li>ResourceUtil - The ResourceUtil class provides helper methods dealing with resources.</li>
+                </ul>
+                <p>For more information click here</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse8">10. Which provider service scans the CRX repository for artifacts and provides them to the OSGi installer?</a></h4>
+            </div>
+            <div id="collapse8" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>Sling JCR Installer scans the CRX repository for artifacts and provides them to the OSGi installer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="container-fluid text-center">
+    <p>Please send your queries or suggestions at aeminterviewquestions@gmail.com(Abhinah Kumar Singh)</p>
+  </footer>
+</body>
+</html>
